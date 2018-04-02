@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Google webfonts -->
+    <link href="https://fonts.googleapis.com/css?family=Amiri|Trocchi" rel="stylesheet">
+
+    <style>
+
+
+    h1 { 
+      font-family: 'Trocchi', serif; 
+    }
+    body { 
+        font-family: 'Amiri', serif; 
+    }
+    .bg-people {
+      /*background: url("{{ url_for('static', filename = 'imgs/people.svg') }}") bottom center;*/
+      /*background-repeat: no-repeat;*/
+      /*background-size: 100%;*/
+      width: 100%;
+      /*height: 600px;*/
+
+    }
+    .bg-blue {
+      background: #C1D8EA;
+      height: 300px;
+    }
+    .bg-dark-blue {
+      background: #568FA2;
+      height: 400px;
+    }
+    .footer li {
+      background: none;
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+      color: white
+    }
+    #octocat_img {
+      max-width: 40px;
+    }
+
+    #octoholder {
+      text-align: right
+    }
+
+    #maincol {
+      text-align: center;
+      padding-top: 50px;
+    }
+
+
+
+
+    .sv_qstn .sq-root {
+        max-width: 400px;
+        /*font-family: 'Amiri', serif; */
+        /*border: 1px solid gray;*/
+        /*border-left: 4px solid #18a689;*/
+        /*border-radius: 5px;*/
+        padding: 20px;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+
+    .sv_qstn .sq-root-cb {
+        border-left: 4px solid orange;
+    }
+
+    .sq-title {
+        text-align: center;
+        font-family: 'Trocchi', serif; 
+        color: black;
+        font-size: 20px;
+        margin-left: 20px;
+        margin-top: 100px;
+        margin-bottom: 30px;
+    }
+
+    .sq-title-required {
+        color: red;
+    }
+
+    .sq-label {
+        margin-left: 30px;
+    }
+    .sq-item:nth-child(1) {
+        margin-bottom: 5px;
+    }
+/*    .sq-progress {
+      color: white !important;
+      position: absolute;
+      width: 100%;
+      bottom: 0px;
+      background-color: black;
+    }*/
+
+    input.sv_prev_btn {
+      background: white !important;
+      color: black !important;
+      width: 30px !important;
+      height: 30px !important;
+      border: 1px solid black !important;
+      position: absolute !important;
+      bottom: 50px;
+      left: 30px;
+    }
+
+    input.sv_next_btn, input.sv_complete_btn {
+      background: white !important;
+      color: black !important;
+      width: 30px !important;
+      height: 30px !important;
+      border: 1px solid black !important;
+      position: absolute !important;
+      bottom: 50px;
+      right: 30px;
+    }
+
+    .sv_row {
+      border: 0px !important;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .sv_progress_bar  {
+      height: 20px !important;
+      position: absolute !important;; 
+      /*width: 100% !important;;*/
+      bottom: 0px !important;;
+      /*background-color: black;*/
+    }
+
+    .sv_progress_bar > span {
+      color: white;
+    }
+
+    .sv_progress {
+      position: absolute !important;
+      width: 100% !important;;
+      bottom: 0px !important;
+      height: 20px !important;
+    }
+
+
+    #surveyElement {
+      position: absolute !important;
+      width: 100% !important;
+      bottom: 0px !important;
+      top: 0px !important;
+    }
+
+    .sv_main {
+      height: 100% !important;
+      position: absolute !important;
+      bottom: 0px !important;
+      top: 0px !important;
+      width: 100% !important;
+    }
+
+
+    .sv_container {
+      position: absolute !important;
+      width: 100% !important;
+      bottom: 0px !important;
+      top: 0px !important;
+      height: 100% !important;
+    }
+
+    .sv_body {
+      padding: 0px !important;
+      bottom: 0px !important;
+      top: 0px !important;
+      position: absolute !important;
+      width: 100% !important;
+    }
+
+    </style>
+
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    
+
+        <div id="surveyElement"></div>
+        <div id="surveyResult"></div>
+
+
+
+
+
+
+
+
+    <!-- survey js -->
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://surveyjs.azureedge.net/1.0.15/survey.jquery.min.js"></script>
+    <link href="https://surveyjs.azureedge.net/1.0.15/survey.css" type="text/css" rel="stylesheet"/>
+
+    <script type="text/javascript">
+      
+
+      Survey
+          .StylesManager
+          .applyTheme("bootstrap");
+
+      var json = {
+ title: "American History",
+ completedHtml: "<p>Your anwers are:</p><p>When was the Civil War?: <b>{civilwar}</b>. The correct is: <b>1850-1900</b></p><p>Who said 'Give me liberty or give me death?': <b>{libertyordeath}</b>. The correct is: <b>Patrick Henry</b></p><p>What is the Magna Carta?: <b>{magnacarta}</b>. The correct is: <b>The foundation of the British parliamentary system</b></p>",
+ pages: [
+  {
+   name: "Kind of insurance",
+   elements: [
+    {
+     type: "checkbox",
+     name: "kindofinsurance",
+     title: "What kind of health insurance did your family have last year? Check all that apply.",
+     choices: [
+      {
+       value: "1750-1800",
+       text: "Private insurance from my work"
+      },
+      {
+       value: "1800-1850",
+       text: "Private insurance from the ACA exchange"
+      },
+      {
+       value: "1850-1900",
+       text: "Traditional Medicare"
+      },
+      {
+       value: "1900-1950",
+       text: "Medicare advantage"
+      },
+      {
+       value: "after 1950",
+       text: "MediCal"
+      },
+      {
+       value: "item1",
+       text: "Veteran’s Administration"
+      },
+      {
+       value: "item2",
+       text: "Other"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   name: "p_totalspending",
+   elements: [
+    {
+     type: "dropdown",
+     name: "q_totalspending",
+     title: "How much did the family spend last year on health insurance premiums? For example, if insured from work report your premium contributions, or if from the ACA exchange report the portion not covered by an ACA subsidy.",
+     choices: [
+      {
+       value: "item8",
+       text: "I don't know"
+      },
+      {
+       value: "John Hancock",
+       text: "$0"
+      },
+      {
+       value: "James Madison",
+       text: "$1-500"
+      },
+      {
+       value: "Patrick Henry",
+       text: "$501-1,000"
+      },
+      {
+       value: "Samuel Adams",
+       text: "$1,001-1,500"
+      },
+      {
+       value: "item1",
+       text: "$1,501-$2,000"
+      },
+      {
+       value: "item2",
+       text: "$2,000-$2,500"
+      },
+      {
+       value: "item3",
+       text: "$2,501- $3,000"
+      },
+      {
+       value: "item4",
+       text: "$3,001 - $3,500"
+      },
+      {
+       value: "item5",
+       text: "$3,501 - $4,000"
+      },
+      {
+       value: "item6",
+       text: "$4,001 - $4,500"
+      },
+      {
+       value: "item7",
+       text: "$4,501+"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   name: "act-hh",
+   elements: [
+    {
+     type: "text",
+     name: "q_num_hh_mem",
+     title: "How many people are in your household?",
+     inputType: "number",
+     placeHolder: "1"
+    }
+   ],
+   visibleIf: "{q_totalspending} = \"item8\"",
+   title: "ach-hh"
+  },
+  {
+   name: "p_act-hh-expanded",
+   elements: [
+    {
+     type: "text",
+     name: "q_hh1_age",
+     title: "How old is person 1?"
+    },
+    {
+     type: "dropdown",
+     name: "q_hh1_conditions",
+     title: "Does person 1 have any of the following conditions?",
+     choices: [
+      {
+       value: "item2",
+       text: "Asthma"
+      },
+      {
+       value: "item3",
+       text: "Diabetes"
+      },
+      {
+       value: "item4",
+       text: "Parkinsons disease"
+      },
+      {
+       value: "item5",
+       text: "None"
+      }
+     ]
+    },
+    {
+     type: "dropdown",
+     name: "q_hh2_conditions",
+     visibleIf: "{q_num_hh_mem} > 1",
+     title: "Does person 2 have any of the following conditions?",
+     choices: [
+      {
+       value: "item2",
+       text: "Asthma"
+      },
+      {
+       value: "item3",
+       text: "Diabetes"
+      },
+      {
+       value: "item4",
+       text: "Parkinsons disease"
+      },
+      {
+       value: "item5",
+       text: "None"
+      }
+     ]
+    }
+   ],
+   visibleIf: "{q_totalspending} = \"item8\""
+  },
+  {
+   name: "p_oop",
+   elements: [
+    {
+     type: "dropdown",
+     name: "q_oop",
+     title: "What were your out-of-pocket expenditures, for deductibles, copayments, and uncovered services? ",
+     description: "Please think about primary care and specialist office visits, hospitalization / surgery, counseling / therapy, maternity / infertility treatments, chiropractor / acupuncture, and all prescription and over-the-counter medicines.",
+     choices: [
+      {
+       value: "The charter signed by the Pilgrims on the Mayflower",
+       text: "$0"
+      },
+      {
+       value: "item1",
+       text: "$1-500"
+      },
+      {
+       value: "item2",
+       text: "Etc"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ showTitle: false,
+ showQuestionNumbers: "off",
+ showProgressBar: "bottom",
+ goNextPageAutomatic: true,
+ startSurveyText: "Start",
+ pagePrevText: "<",
+ pageNextText: ">",
+ completeText: "Calculate"
+}
+
+      window.survey = new Survey.Model(json);
+
+      survey
+          .onComplete
+          .add(function (result) {
+              document
+                  .querySelector('#surveyResult')
+                  .innerHTML = "result: " + JSON.stringify(result.data);
+          });
+
+      survey
+          .onUpdateQuestionCssClasses
+          .add(function (survey, options) {
+              var classes = options.cssClasses
+
+              classes.root = "sq-root";
+              classes.title = "sq-title";
+              classes.item = "sq-item";
+              classes.label = "sq-label";
+              classes.progress = "sq-progress";
+              classes.progressBar = "sq-progress-bar";
+
+              if (options.question.isRequired) {
+                  classes.title = "sq-title sq-title-required";
+                  classes.root = "sq-root sq-root-required";
+              }
+
+              if (options.question.getType() === "checkbox") {
+                  classes.root = "sq-root sq-root-cb";
+              }
+          });
+
+      $("#surveyElement").Survey({model: survey});
+
+
+    </script>
+
+  </body>
+</html>
