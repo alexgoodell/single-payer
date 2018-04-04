@@ -265,52 +265,168 @@
      description: "For example, if insured from work report your premium contributions, or if from the ACA exchange report the portion not covered by an ACA subsidy.",
      choices: [
       {
-       value: "item8",
+       value: "dont_know",
        text: "I don't know"
       },
       {
-       value: "John Hancock",
-       text: "$0"
+       value: 250,
+       text: "$0 - $500"
       },
       {
-       value: "James Madison",
-       text: "$1-500"
+       value: 750.5,
+       text: "$501 - $1000"
       },
       {
-       value: "Patrick Henry",
-       text: "$501-1,000"
+       value: 1250.5,
+       text: "$1001 - $1500"
       },
       {
-       value: "Samuel Adams",
-       text: "$1,001-1,500"
+       value: 1750.5,
+       text: "$1501 - $2000"
       },
       {
-       value: "item1",
-       text: "$1,501-$2,000"
+       value: 2250.5,
+       text: "$2001 - $2500"
       },
       {
-       value: "item2",
-       text: "$2,000-$2,500"
+       value: 2750.5,
+       text: "$2501 - $3000"
       },
       {
-       value: "item3",
-       text: "$2,501- $3,000"
+       value: 3250.5,
+       text: "$3001 - $3500"
       },
       {
-       value: "item4",
-       text: "$3,001 - $3,500"
+       value: 3750.5,
+       text: "$3501 - $4000"
       },
       {
-       value: "item5",
-       text: "$3,501 - $4,000"
+       value: 4250.5,
+       text: "$4001 - $4500"
       },
       {
-       value: "item6",
-       text: "$4,001 - $4,500"
+       value: 4750.5,
+       text: "$4501 - $5000"
       },
       {
-       value: "item7",
-       text: "$4,501+"
+       value: 5250.5,
+       text: "$5001 - $5500"
+      },
+      {
+       value: 5750.5,
+       text: "$5501 - $6000"
+      },
+      {
+       value: 6250.5,
+       text: "$6001 - $6500"
+      },
+      {
+       value: 6750.5,
+       text: "$6501 - $7000"
+      },
+      {
+       value: 7250.5,
+       text: "$7001 - $7500"
+      },
+      {
+       value: 7750.5,
+       text: "$7501 - $8000"
+      },
+      {
+       value: 8250.5,
+       text: "$8001 - $8500"
+      },
+      {
+       value: 8750.5,
+       text: "$8501 - $9000"
+      },
+      {
+       value: 9250.5,
+       text: "$9001 - $9500"
+      },
+      {
+       value: 9750.5,
+       text: "$9501 - $10000"
+      },
+      {
+       value: 10250.5,
+       text: "$10001 - $10500"
+      },
+      {
+       value: 10750.5,
+       text: "$10501 - $11000"
+      },
+      {
+       value: 11250.5,
+       text: "$11001 - $11500"
+      },
+      {
+       value: 11750.5,
+       text: "$11501 - $12000"
+      },
+      {
+       value: 12250.5,
+       text: "$12001 - $12500"
+      },
+      {
+       value: 12750.5,
+       text: "$12501 - $13000"
+      },
+      {
+       value: 13250.5,
+       text: "$13001 - $13500"
+      },
+      {
+       value: 13750.5,
+       text: "$13501 - $14000"
+      },
+      {
+       value: 14250.5,
+       text: "$14001 - $14500"
+      },
+      {
+       value: 14750.5,
+       text: "$14501 - $15000"
+      },
+      {
+       value: 15250.5,
+       text: "$15001 - $15500"
+      },
+      {
+       value: 15750.5,
+       text: "$15501 - $16000"
+      },
+      {
+       value: 16250.5,
+       text: "$16001 - $16500"
+      },
+      {
+       value: 16750.5,
+       text: "$16501 - $17000"
+      },
+      {
+       value: 17250.5,
+       text: "$17001 - $17500"
+      },
+      {
+       value: 17750.5,
+       text: "$17501 - $18000"
+      },
+      {
+       value: 18250.5,
+       text: "$18001 - $18500"
+      },
+      {
+       value: 18750.5,
+       text: "$18501 - $19000"
+      },
+      {
+       value: 19250.5,
+       text: "$19001 - $19500"
+      },
+      {
+       value: 19750.5,
+       text: "$19501 - $20000"
       }
      ]
     }
@@ -327,7 +443,7 @@
      placeHolder: "1"
     }
    ],
-   visibleIf: "{q_totalspending} = \"item8\"",
+   visibleIf: "{q_totalspending} = \"dont_know\"",
    title: "ach-hh"
   },
   {
@@ -632,7 +748,7 @@
      ]
     }
    ],
-   visibleIf: "{q_totalspending} = \"item8\""
+   visibleIf: "{q_totalspending} = \"dont_know\""
   },
   {
    name: "p_oop",
@@ -644,16 +760,164 @@
      description: "Please think about primary care and specialist office visits, hospitalization / surgery, counseling / therapy, maternity / infertility treatments, chiropractor / acupuncture, and all prescription and over-the-counter medicines.",
      choices: [
       {
-       value: "The charter signed by the Pilgrims on the Mayflower",
-       text: "$0"
+       value: 250,
+       text: "$0 - $500"
       },
       {
-       value: "item1",
-       text: "$1-500"
+       value: 750.5,
+       text: "$501 - $1000"
       },
       {
-       value: "item2",
-       text: "Etc"
+       value: 1250.5,
+       text: "$1001 - $1500"
+      },
+      {
+       value: 1750.5,
+       text: "$1501 - $2000"
+      },
+      {
+       value: 2250.5,
+       text: "$2001 - $2500"
+      },
+      {
+       value: 2750.5,
+       text: "$2501 - $3000"
+      },
+      {
+       value: 3250.5,
+       text: "$3001 - $3500"
+      },
+      {
+       value: 3750.5,
+       text: "$3501 - $4000"
+      },
+      {
+       value: 4250.5,
+       text: "$4001 - $4500"
+      },
+      {
+       value: 4750.5,
+       text: "$4501 - $5000"
+      },
+      {
+       value: 5250.5,
+       text: "$5001 - $5500"
+      },
+      {
+       value: 5750.5,
+       text: "$5501 - $6000"
+      },
+      {
+       value: 6250.5,
+       text: "$6001 - $6500"
+      },
+      {
+       value: 6750.5,
+       text: "$6501 - $7000"
+      },
+      {
+       value: 7250.5,
+       text: "$7001 - $7500"
+      },
+      {
+       value: 7750.5,
+       text: "$7501 - $8000"
+      },
+      {
+       value: 8250.5,
+       text: "$8001 - $8500"
+      },
+      {
+       value: 8750.5,
+       text: "$8501 - $9000"
+      },
+      {
+       value: 9250.5,
+       text: "$9001 - $9500"
+      },
+      {
+       value: 9750.5,
+       text: "$9501 - $10000"
+      },
+      {
+       value: 10250.5,
+       text: "$10001 - $10500"
+      },
+      {
+       value: 10750.5,
+       text: "$10501 - $11000"
+      },
+      {
+       value: 11250.5,
+       text: "$11001 - $11500"
+      },
+      {
+       value: 11750.5,
+       text: "$11501 - $12000"
+      },
+      {
+       value: 12250.5,
+       text: "$12001 - $12500"
+      },
+      {
+       value: 12750.5,
+       text: "$12501 - $13000"
+      },
+      {
+       value: 13250.5,
+       text: "$13001 - $13500"
+      },
+      {
+       value: 13750.5,
+       text: "$13501 - $14000"
+      },
+      {
+       value: 14250.5,
+       text: "$14001 - $14500"
+      },
+      {
+       value: 14750.5,
+       text: "$14501 - $15000"
+      },
+      {
+       value: 15250.5,
+       text: "$15001 - $15500"
+      },
+      {
+       value: 15750.5,
+       text: "$15501 - $16000"
+      },
+      {
+       value: 16250.5,
+       text: "$16001 - $16500"
+      },
+      {
+       value: 16750.5,
+       text: "$16501 - $17000"
+      },
+      {
+       value: 17250.5,
+       text: "$17001 - $17500"
+      },
+      {
+       value: 17750.5,
+       text: "$17501 - $18000"
+      },
+      {
+       value: 18250.5,
+       text: "$18001 - $18500"
+      },
+      {
+       value: 18750.5,
+       text: "$18501 - $19000"
+      },
+      {
+       value: 19250.5,
+       text: "$19001 - $19500"
+      },
+      {
+       value: 19750.5,
+       text: "$19501 - $20000"
       }
      ]
     }
@@ -668,39 +932,39 @@
      title: "In order to estimate your costs under single payer, we need to know your approximate family income.",
      choices: [
       {
-       value: "25000",
+       value: 25000,
        text: "$25,000 or less"
       },
       {
-       value: "37500",
+       value: 37500,
        text: "$25,001 - $50,000"
       },
       {
-       value: "62500",
+       value: 62500,
        text: "$ 50,001 - $75,000"
       },
       {
-       value: "87500",
+       value: 87500,
        text: "$75,001 - $100,000"
       },
       {
-       value: "125000",
+       value: 125000,
        text: "$100,001 - $150,000"
       },
       {
-       value: "175000",
+       value: 175000,
        text: "$150,001 - $200,000"
       },
       {
-       value: "200000",
+       value: 200000,
        text: "$200,001 - $300,000"
       },
       {
-       value: "400000",
+       value: 400000,
        text: "$300,001 - $500,000"
       },
       {
-       value: "500000",
+       value: 500000,
        text: "More than $500,000"
       }
      ],
