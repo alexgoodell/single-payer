@@ -1,0 +1,448 @@
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Material Design Lite</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-pink.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/kybarg/mdl-selectfield/mdl-menu-implementation/mdl-selectfield.min.css">
+
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script defer src="https://cdn.rawgit.com/kybarg/mdl-selectfield/mdl-menu-implementation/mdl-selectfield.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
+
+    <script type="text/javascript">
+
+
+  // function updateHhm() {
+  //   household_size = $("#household_size").val()
+  //   if (household_size == 1) {
+  //     $("#hhm1").show()
+  //     $("#hhm2").hide()     
+  //   }
+  //   if (household_size == 2) {
+  //     $("#hhm1, #hhm2").show()    
+  //   }
+
+  // }
+
+  function objectifyForm(formArray) {//serialize data function
+    var returnArray = {};
+    for (var i = 0; i < formArray.length; i++){
+      returnArray[formArray[i]['name']] = formArray[i]['value'];
+    }
+    return returnArray;
+  }
+
+
+  function calculate() {
+    array = $("form").serializeArray()
+    array = objectifyForm(array)
+
+
+    array.hh2_age = 0
+    array.hh2_sex = "Male"
+    array.hh2_condition = "None"
+    array.hh2_oon = 0
+    array.hh3_age = 0
+    array.hh3_sex = "Male"
+    array.hh3_condition = "None"
+    array.hh3_oon = 0
+    array.hh4_age = 0
+    array.hh4_sex = "Male"
+    array.hh4_condition = "None"
+    array.hh4_oon = 0
+    array.hh5_age = 0
+    array.hh5_sex = "Male"
+    array.hh5_condition = "None"
+    array.hh5_oon = 0
+    array.hh6_age = 0
+    array.hh6_sex = "Male"
+    array.hh6_condition = "None"
+    array.hh6_oon = 0
+    array.prem_assis = 0
+
+
+    $("#intro_text").slideUp()
+    $("#main_questions").slideUp()
+    $("#hhm1").slideUp()
+    $("#choose_single_payer").slideUp()
+    $("#action_bar_calculate").slideUp()
+    $("#loading").slideDown()
+    // $("#results").slideDown()
+
+
+    $.ajax({
+      type: "GET",
+      url: "https://script.google.com/macros/s/AKfycbw3O9N2LvJKqgnlVfNTqDzUvq5pTw6pjIQ6F_xz3-T3ng3ROGmu/exec",
+      data: array,
+      cache: false,
+      success: function(response){
+        console.log(response)
+        parsed = JSON.parse(response)
+        console.log(parsed)
+        output_vars = [ "difference", "ci_premium", "ci_oop", "ci_oon", "ci_added_taxes", "ci_total", "sp_premium", "sp_oop", "sp_oon", "sp_added_taxes", "sp_total" ]
+        for (i=0; i < output_vars.length; i++) {
+          output_var_name = output_vars[i]
+          output_var_value = parsed[output_var_name]
+
+          console.log(output_var_name, output_var_value)
+
+          output_var_value = Math.round(output_var_value)
+          $("#"+output_var_name).html(output_var_value)
+          $("#loading").slideUp()
+        $("#results").slideDown()
+        $("#action_bar_modify").slideDown()
+        }
+
+         
+      }
+    });
+
+  }
+
+  </script>
+
+
+<style>
+.demo-card-wide.mdl-card {
+  width: 100%;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('https://getmdl.io/assets/demos/welcome_card.jpg') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+
+.in2 {
+  padding: 16px;
+}
+
+.bg-g:hover {
+  background: #f9f9f9;
+}
+
+.age {
+  width: 100px;
+  margin-right: 20px;
+}
+
+.sex {
+  margin-left: 20px;
+}
+
+.hhm {
+  color: rgba(0,0,0,.54);
+    font-size: 1rem;
+    line-height: 18px;
+}
+
+.data-table {
+  font-size: 1rem;
+    width: 100%;
+    font-family: 'Roboto';
+    font-weight: 100;
+}
+
+.data-table td {
+  text-align: center;
+}
+
+.data-table .align-right {
+  text-align: right;
+}
+
+
+#hhm2 {
+  display: none;
+}
+
+#results {
+  display: none;
+  background: rgb(107, 64, 153);
+  color: white;
+}
+
+#loading {
+  display: none;
+  padding: 16px;
+}
+
+#action_bar_modify {
+  display: none;
+}
+
+.female {
+  padding-right: 24px;
+}
+
+
+</style>
+
+
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
+  </head>
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+<!--       <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <h3>Name &amp; Title</h3>
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        </div>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+          <a href="#overview" class="mdl-layout__tab is-active">Overview</a>
+          <a href="#features" class="mdl-layout__tab">Features</a>
+          <a href="#features" class="mdl-layout__tab">Details</a>
+          <a href="#features" class="mdl-layout__tab">Technology</a>
+          <a href="#features" class="mdl-layout__tab">FAQ</a>
+          <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add">
+            <i class="material-icons" role="presentation">add</i>
+            <span class="visuallyhidden">Add</span>
+          </button>
+        </div>
+      </header> -->
+      <main class="mdl-layout__content">
+        <div class="mdl-layout__tab-panel is-active" id="overview">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+
+
+              <div class="mdl-card__supporting-text">
+                <h4>Single-payer calculator</h4>
+                This calculator helps you determine whether you could save money under a single-payer healthcare system. Example text here. Single payer example text. More example text. This calculator helps you determine whether you could save money under a single-payer healthcare system. Example text here. Single payer example text. More example text. This calculator helps you determine whether you could save money under a single-payer healthcare system. Example text here. Single payer example text. More example text. 
+              </div>
+
+              <div class="mdl-card__actions" id="loading">
+                  <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+                </div>
+
+                <div class="mdl-card__actions" id="results">
+                
+                <table class="data-table">
+                  <thead>
+                      <tr>
+                          <th></th>
+                          <th>Current Insurance</th>
+                          <th>Single Payer</th>
+                          <th>Difference</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td class="align-right">Premium</td>
+                          <td><span id="ci_premium"></span></td>
+                          <td><span id="sp_premium"></span></td>
+                          <td></td>
+                      </tr>
+                      <tr>
+                          <td class="align-right">Out-of-Pocket</td>
+                          <td><span id="ci_oop"></span></td>
+                          <td><span id="sp_oop"></span></td>
+                          <td></td>
+                      </tr>
+                      <tr>
+                          <td class="align-right">Out-of-Network Payments</td>
+                          <td><span id="ci_oon"></span></td>
+                          <td><span id="sp_oon"></span></td>
+                          <td></td>
+                      </tr>
+                      <tr>
+                          <td class="align-right">Added Taxes</td>
+                          <td><span id="ci_added_taxes"></span></td>
+                          <td><span id="sp_added_taxes"></span></td>
+                          <td></td>
+                      </tr>
+                      <tr>
+                          <td class="align-right">Total</td>
+                          <td><span id="ci_total"></span></td>
+                          <td><span id="sp_total"></span></td>
+                          <td><span id="difference"></span></td>
+                      </tr>
+                  </tbody>
+              </table>
+
+                </div>
+
+                <form action="#">
+
+                <div class="mdl-card__actions in2" id="main_questions">
+                  <!-- Numeric Textfield with Floating Label -->
+                
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="hh_income" name="hh_income">
+                  <label class="mdl-textfield__label" for="hh_income">Household income</label>
+                  <span class="mdl-textfield__error">Input is not a number!</span>
+                  </div>
+
+
+                  <div class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
+                  <select class="mdl-selectfield__select" id="current_insurance_plan" name="current_insurance_plan">
+                    <option value="Bronze 60">Bronze 60</option>
+                    <option value="Silver 70">Silver 70</option>
+                    <option value="Gold 80">Gold 80</option>
+                    <option value="Platinum 90">Platinum 90</option>
+                    <option value="Medicare A/B">Medicare A/B</option>
+                    <option value="Employer Provided">Employer Provided</option>
+                  </select>
+                  <label class="mdl-selectfield__label" for="current_insurance_plan">Current plan</label>
+                  </div>
+
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="household_size" name="number_household" onchange="updateHhm()">
+                  <label class="mdl-textfield__label" for="household_size">Household size (only allows 1 currently)</label>
+                  <span class="mdl-textfield__error">Input is not a number!</span>
+                  </div>
+
+                </div>
+
+                <div class="mdl-card__actions in2 bg-g hhm mdl-card--border" id="hhm1">
+
+                    Member 1 <br>
+
+                    <!-- Age -->
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label age">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="hh1_age" name="hh1_age">
+                    <label class="mdl-textfield__label" for="hh1_age">Age</label>
+                    <span class="mdl-textfield__error">Input is not a number!</span>
+                    </div>
+                    <!-- Sex -->
+                    Sex:
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect sex" for="option-1">
+                      <input type="radio" id="option-1" class="mdl-radio__button" name="hh1_sex" value="Male" checked>
+                      <span class="mdl-radio__label">Male</span>
+                    </label>
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect female" for="option-2">
+                      <input type="radio" id="option-2" class="mdl-radio__button" name="hh1_sex" value="Female">
+                      <span class="mdl-radio__label">Female</span>
+                    </label>
+                    <!-- Medical condition -->
+                    <div class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
+                    <select class="mdl-selectfield__select" id="hh1_condition" name="hh1_condition">
+                      <option value="None"> None </option> 
+                      <option value="Asthma"> Asthma </option>
+                      <option value="Diabetes"> Diabetes </option>
+                      <option value="Opioid Disorder"> Opioid Disorder </option>
+                      <option value="Parkinson's Disease"> Parkinson's Disease </option>
+                    </select>
+                    <label class="mdl-selectfield__label" for="hh1_condition">Medical condition</label>
+                    </div>
+                    <!-- Out of network -->
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="hh1_oon" name="hh1_oon">
+                    <label class="mdl-textfield__label" for="sample4">Out of network costs</label>
+                    <span class="mdl-textfield__error">Input is not a number!</span>
+                    </div>
+
+                </div>
+
+                <div class="mdl-card__actions in2 bg-g mdl-card--border" id="choose_single_payer">
+
+
+                  <div class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
+                  <select class="mdl-selectfield__select" id="single_payer_plan" name="single_payer_plan">
+                    <option value="HR 676">HR 676</option>
+                    <option value="SB 562">SB 562</option>
+                  </select>
+                  <label class="mdl-selectfield__label" for="single_payer_plan">Compare to single payer option...</label>
+                  </div>
+
+
+                <br><br><br>
+                </div>
+
+
+                <div class="mdl-card__actions mdl-card--border" id="action_bar_calculate">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="calculate()">
+                    Calculate
+                  </a>
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border" id="action_bar_modify">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="modify()">
+                    Modify
+                  </a>
+                </div>
+
+
+                <div class="mdl-card__menu">
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                      <i class="material-icons">share</i>
+                    </button>
+                </div>
+
+
+            </div>
+
+
+
+          </section>
+          <section class="section--footer mdl-color--white mdl-grid">
+          </section>
+        </div>
+        
+      </main>
+    </div>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  </body>
+</html>
