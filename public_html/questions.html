@@ -55,134 +55,10 @@
     }
 
 
-
-
-    .sv_qstn .sq-root {
-        max-width: 400px;
-        /*font-family: 'Amiri', serif; */
-        /*border: 1px solid gray;*/
-        /*border-left: 4px solid #18a689;*/
-        /*border-radius: 5px;*/
-        padding: 20px;
-        margin: 0 auto;
-        margin-bottom: 30px;
-    }
-
-    .sv_qstn .sq-root-cb {
-        border-left: 4px solid orange;
-    }
-
-    .sq-title {
-        text-align: center;
-        font-family: 'Trocchi', serif; 
-        color: black;
-        font-size: 20px;
-        margin-left: 20px;
-        margin-top: 100px;
-        margin-bottom: 30px;
-    }
-
-    .sq-title-required {
-        color: red;
-    }
-
-    .sq-label {
-        margin-left: 30px;
-    }
-    .sq-item:nth-child(1) {
-        margin-bottom: 5px;
-    }
-/*    .sq-progress {
-      color: white !important;
-      position: absolute;
-      width: 100%;
-      bottom: 0px;
-      background-color: black;
-    }*/
-
-    input.sv_prev_btn {
-      background: white !important;
-      color: black !important;
-      width: 30px !important;
-      height: 30px !important;
-      border: 1px solid black !important;
-      position: absolute !important;
-      bottom: 50px;
-      left: 30px;
-    }
-
-    input.sv_next_btn, input.sv_complete_btn {
-      background: white !important;
-      color: black !important;
-      width: 30px !important;
-      height: 30px !important;
-      border: 1px solid black !important;
-      position: absolute !important;
-      bottom: 50px;
-      right: 30px;
-    }
-
-    .sv_row {
-      border: 0px !important;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-    .sv_progress_bar  {
-      height: 20px !important;
-      position: absolute !important;; 
-      /*width: 100% !important;;*/
-      bottom: 0px !important;;
-      /*background-color: black;*/
-    }
-
-    .sv_progress_bar > span {
-      color: white;
-    }
-
-    .sv_progress {
-      position: absolute !important;
-      width: 100% !important;;
-      bottom: 0px !important;
-      height: 20px !important;
-    }
-
-
-    #surveyElement {
-      position: absolute !important;
-      width: 100% !important;
-      bottom: 0px !important;
-      top: 0px !important;
-    }
-
-    .sv_main {
-      height: 100% !important;
-      position: absolute !important;
-      bottom: 0px !important;
-      top: 0px !important;
-      width: 100% !important;
-    }
-
-
-    .sv_container {
-      position: absolute !important;
-      width: 100% !important;
-      bottom: 0px !important;
-      top: 0px !important;
-      height: 100% !important;
-    }
-
-    .sv_body {
-      padding: 0px !important;
-      bottom: 0px !important;
-      top: 0px !important;
-      position: absolute !important;
-      width: 100% !important;
-    }
-
     </style>
 
 
-    <title>Hello, world!</title>
+    <title>Single payer cost</title>
   </head>
   <body>
     
@@ -200,9 +76,9 @@
     <!-- survey js -->
     <script src="https://unpkg.com/jquery"></script>
     <script src="https://surveyjs.azureedge.net/1.0.15/survey.jquery.min.js"></script>
-    <link href="https://surveyjs.azureedge.net/1.0.15/survey.css" type="text/css" rel="stylesheet"/>
+    <link href="static/styles/survey.css" type="text/css" rel="stylesheet"/>
 
-    <script type="text/javascript">
+    <script type="text/javascript"> 
       
 
       Survey
@@ -210,57 +86,77 @@
           .applyTheme("bootstrap");
 
       var json = {
- title: "American History",
+ title: "Single payer",
  completedHtml: "Please wait while your results are loaded.",
  loadingHtml: "Loading....",
  pages: [
   {
-   name: "Kind of insurance",
+   name: "p_kindofinsurance",   
    elements: [
     {
-     type: "checkbox",
-     name: "kindofinsurance",
+     type: "dropdown",
+     name: "q_kindofinsurance",
      title: "What kind of health insurance did your family have last year?",
-     description: "Check all that apply.",
+     description: "Select only one. ",
      choices: [
       {
-       value: "1750-1800",
+       value: "Employer Provided",
        text: "Private insurance from my work"
       },
       {
-       value: "1800-1850",
-       text: "Private insurance from the ACA exchange"
+       value: "Bronze 60",
+       text: "Bronze 60"
       },
       {
-       value: "1850-1900",
-       text: "Traditional Medicare"
+       value: "Silver 70",
+       text: "Silver 70"
       },
       {
-       value: "1900-1950",
-       text: "Medicare advantage"
+       value: "Gold 80",
+       text: "Gold 80"
       },
       {
-       value: "after 1950",
-       text: "MediCal"
+       value: "Platinum 90",
+       text: "Platinum 90"
       },
       {
-       value: "item1",
-       text: "Veteran’s Administration"
-      },
-      {
-       value: "item2",
-       text: "Other"
+       value: "Medicare A/B",
+       text: "Medicare A/B"
       }
+      // {
+      //  value: "1800-1850",
+      //  text: "Private insurance from the ACA exchange"
+      // },
+      // {
+      //  value: "1850-1900",
+      //  text: "Traditional Medicare"
+      // },
+      // {
+      //  value: "1900-1950",
+      //  text: "Medicare advantage"
+      // },
+      // {
+      //  value: "after 1950",
+      //  text: "MediCal"
+      // },
+      // {
+      //  value: "item1",
+      //  text: "Veteran’s Administration"
+      // },
+      // {
+      //  value: "item2",
+      //  text: "Other"
+      // }
      ]
     }
    ]
   },
   {
-   name: "p_totalspending",
+   name: "p_premiums",
    elements: [
     {
      type: "dropdown",
-     name: "q_totalspending",
+     name: "q_premiums",
      title: "How much did the family spend last year on health insurance premiums? ",
      description: "For example, if insured from work report your premium contributions, or if from the ACA exchange report the portion not covered by an ACA subsidy.",
      choices: [
@@ -443,7 +339,7 @@
      placeHolder: "1"
     }
    ],
-   visibleIf: "{q_totalspending} = \"dont_know\"",
+   visibleIf: "{q_premiums} = \"dont_know\"",
    title: "ach-hh"
   },
   {
@@ -461,11 +357,11 @@
      title: "Gender of person 1?",
      choices: [
       {
-       value: "male",
+       value: "Male",
        text: "Male"
       },
       {
-       value: "female",
+       value: "Female",
        text: "Female"
       }
      ]
@@ -476,23 +372,23 @@
      title: "Does person 1 have any of the following conditions?",
      choices: [
       {
-       value: "none",
+       value: "None",
        text: "None"
       },
       {
-       value: "asthma",
+       value: "Asthma",
        text: "Asthma"
       },
       {
-       value: "diabetes",
+       value: "Diabetes",
        text: "Diabetes"
       },
       {
-       value: "parkinsons_disease",
-       text: "Parkinsons disease"
+       value: "Parkinson's disease",
+       text: "Parkinson's disease"
       },
       {
-       value: "opioid_disorder",
+       value: "Opioid Disorder",
        text: "Opioid disorder"
       }
      ]
@@ -510,11 +406,11 @@
      title: "Gender of person 2?",
      choices: [
       {
-       value: "male",
+       value: "Male",
        text: "Male"
       },
       {
-       value: "female",
+       value: "Female",
        text: "Female"
       }
      ]
@@ -526,23 +422,23 @@
      title: "Does person 2 have any of the following conditions?",
      choices: [
       {
-       value: "none",
+       value: "None",
        text: "None"
       },
       {
-       value: "asthma",
+       value: "Asthma",
        text: "Asthma"
       },
       {
-       value: "diabetes",
+       value: "Diabetes",
        text: "Diabetes"
       },
       {
-       value: "parkinsons_disease",
-       text: "Parkinsons disease"
+       value: "Parkinson's disease",
+       text: "Parkinson's disease"
       },
       {
-       value: "opioid_disorder",
+       value: "Opioid Disorder",
        text: "Opioid disorder"
       }
      ]
@@ -560,11 +456,11 @@
      title: "Gender of person 3?",
      choices: [
       {
-       value: "male",
+       value: "Male",
        text: "Male"
       },
       {
-       value: "female",
+       value: "Female",
        text: "Female"
       }
      ]
@@ -576,23 +472,23 @@
      title: "Does person 3 have any of the following conditions?",
      choices: [
       {
-       value: "none",
+       value: "None",
        text: "None"
       },
       {
-       value: "asthma",
+       value: "Asthma",
        text: "Asthma"
       },
       {
-       value: "diabetes",
+       value: "Diabetes",
        text: "Diabetes"
       },
       {
-       value: "parkinsons_disease",
-       text: "Parkinsons disease"
+       value: "Parkinson's disease",
+       text: "Parkinson's disease"
       },
       {
-       value: "opioid_disorder",
+       value: "Opioid Disorder",
        text: "Opioid disorder"
       }
      ]
@@ -610,11 +506,11 @@
      title: "Gender of person 4?",
      choices: [
       {
-       value: "male",
+       value: "Male",
        text: "Male"
       },
       {
-       value: "female",
+       value: "Female",
        text: "Female"
       }
      ]
@@ -626,23 +522,23 @@
      title: "Does person 4 have any of the following conditions?",
      choices: [
       {
-       value: "none",
+       value: "None",
        text: "None"
       },
       {
-       value: "asthma",
+       value: "Asthma",
        text: "Asthma"
       },
       {
-       value: "diabetes",
+       value: "Diabetes",
        text: "Diabetes"
       },
       {
-       value: "parkinsons_disease",
-       text: "Parkinsons disease"
+       value: "Parkinson's disease",
+       text: "Parkinson's disease"
       },
       {
-       value: "opioid_disorder",
+       value: "Opioid Disorder",
        text: "Opioid disorder"
       }
      ]
@@ -660,11 +556,11 @@
      title: "Gender of person 5?",
      choices: [
       {
-       value: "male",
+       value: "Male",
        text: "Male"
       },
       {
-       value: "female",
+       value: "Female",
        text: "Female"
       }
      ]
@@ -676,23 +572,23 @@
      title: "Does person 5 have any of the following conditions?",
      choices: [
       {
-       value: "none",
+       value: "None",
        text: "None"
       },
       {
-       value: "asthma",
+       value: "Asthma",
        text: "Asthma"
       },
       {
-       value: "diabetes",
+       value: "Diabetes",
        text: "Diabetes"
       },
       {
-       value: "parkinsons_disease",
-       text: "Parkinsons disease"
+       value: "Parkinson's disease",
+       text: "Parkinson's disease"
       },
       {
-       value: "opioid_disorder",
+       value: "Opioid Disorder",
        text: "Opioid disorder"
       }
      ]
@@ -710,11 +606,11 @@
      title: "Gender of person 6?",
      choices: [
       {
-       value: "male",
+       value: "Male",
        text: "Male"
       },
       {
-       value: "female",
+       value: "Female",
        text: "Female"
       }
      ]
@@ -726,29 +622,29 @@
      title: "Does person 6 have any of the following conditions?",
      choices: [
       {
-       value: "none",
+       value: "None",
        text: "None"
       },
       {
-       value: "asthma",
+       value: "Asthma",
        text: "Asthma"
       },
       {
-       value: "diabetes",
+       value: "Diabetes",
        text: "Diabetes"
       },
       {
-       value: "parkinsons_disease",
-       text: "Parkinsons disease"
+       value: "Parkinson's disease",
+       text: "Parkinson's disease"
       },
       {
-       value: "opioid_disorder",
+       value: "Opioid Disorder",
        text: "Opioid disorder"
       }
      ]
     }
    ],
-   visibleIf: "{q_totalspending} = \"dont_know\""
+   visibleIf: "{q_premiums} = \"dont_know\""
   },
   {
    name: "p_oop",

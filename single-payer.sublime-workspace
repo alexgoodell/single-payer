@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"paddi",
+				"padding-bottom"
+			],
+			[
+				"repea",
+				"background-repeat"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"padding",
+				"padding-top"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
 				"len",
 				"length"
 			],
@@ -60,9 +80,17 @@
 	"command_palette":
 	{
 		"height": 354.0,
-		"last_filter": "project",
+		"last_filter": "table",
 		"selected_items":
 		[
+			[
+				"table",
+				"Table Editor: Enable for current view"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
 			[
 				"project",
 				"Project Manager: Add New Project"
@@ -116,10 +144,6 @@
 				"SublimeLinter: Lint This View"
 			],
 			[
-				"remove",
-				"Package Control: Remove Package"
-			],
-			[
 				"citer s",
 				"Citer: Search"
 			],
@@ -134,10 +158,6 @@
 			[
 				"install ",
 				"Package Control: Install Package"
-			],
-			[
-				"table",
-				"Table Editor: Enable for current view"
 			],
 			[
 				"remo",
@@ -174,12 +194,17 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/Users/alexgoodell/code/single-payer"
-	],
 	"file_history":
 	[
+		"/Users/alexgoodell/code/uganda-model/docs/notes.md",
+		"/Users/alexgoodell/code/uganda-model/refs/library.bib",
+		"/Users/alexgoodell/code/uganda-model/docs/data-sources.md",
+		"/Users/alexgoodell/code/uganda-model/.gitignore",
+		"/Users/alexgoodell/code/single-payer/app.py",
+		"/Users/alexgoodell/code/single-payer/templates/questions.html",
+		"/Users/alexgoodell/code/single-payer/questions.json",
+		"/Users/alexgoodell/code/single-payer/templates/index.html",
+		"/Users/alexgoodell/code/single-payer/public_html/index.html",
 		"/Users/alexgoodell/code/uganda-model/pweave/test.texw",
 		"/Users/alexgoodell/code/uganda-model/misc/data-flow.mmd",
 		"/Users/alexgoodell/code/uganda-model/devel-req.txt",
@@ -199,7 +224,6 @@
 		"/Users/alexgoodell/code/uganda-model/lib/dependencies.py",
 		"/Users/alexgoodell/code/uganda-model/unin.txt",
 		"/Users/alexgoodell/code/uganda-model/model/py/mapper.py",
-		"/Users/alexgoodell/code/uganda-model/.gitignore",
 		"/Users/alexgoodell/code/uganda-model/model/py/config.py",
 		"/Users/alexgoodell/code/uganda-model/model/py/test.py",
 		"/Users/alexgoodell/code/uganda-model/stable-req.txt",
@@ -219,7 +243,6 @@
 		"/Users/alexgoodell/code/uganda-model/tmp.py",
 		"/Users/alexgoodell/.config/fish/config.fish",
 		"/Users/alexgoodell/code/uganda-model/scripts/filedesc.yaml",
-		"/Users/alexgoodell/code/uganda-model/refs/library.bib",
 		"/Users/alexgoodell/code/uganda-model/ms.tex",
 		"/Users/alexgoodell/code/uganda-model/refs/style.csl",
 		"/Users/alexgoodell/code/uganda-model/refs/plain-bib.tex",
@@ -248,11 +271,11 @@
 	],
 	"find":
 	{
-		"height": 70.0
+		"height": 25.0
 	},
 	"find_in_files":
 	{
-		"height": 101.0,
+		"height": 158.0,
 		"where_history":
 		[
 		]
@@ -317,13 +340,9 @@
 	"menu_visible": true,
 	"output.SublimeLinter":
 	{
-		"height": 102.0
-	},
-	"output.find_results":
-	{
 		"height": 0.0
 	},
-	"output.mdpopups":
+	"output.find_results":
 	{
 		"height": 0.0
 	},
