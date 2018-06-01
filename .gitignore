@@ -21,4 +21,11 @@
 # Visio autosave temporary files
 *.~vsd*
 
+# Sublime text workspaces
 *.sublime-workspace
+
+# Fabric command line tools
+fabfile.*
+
+# Archive of older versions of website, design files
+archive/*.*
