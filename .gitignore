@@ -28,6 +28,4 @@
 fabfile.*
 
 # Archive of older versions of website, design files
-archive/*.*
-archive/*/*.*
-archive/*/*/*.*
+archive/**
