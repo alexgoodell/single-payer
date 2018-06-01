@@ -97,7 +97,7 @@
      type: "dropdown",
      name: "q_premiums",
      title: "How much did your household spend last year on health insurance premiums? ",
-     description: "For example, if insured from work report your premium contributions, or if from the ACA exchange report the portion not covered by an ACA subsidy.",
+     description: "For example, if insured from work report your premium contributions, or if from the ACA exchange report the portion not covered by an ACA subsidy. Please report the total for all insurance.",
      choices: [
       {
        value: 250,
@@ -498,6 +498,21 @@
       }
      ],
      otherText: "Or enter directly:"
+    }
+   ]
+  },
+  {
+   name: "p_email",
+   elements: [
+    {
+     type: "text",
+     name: "q_email",
+     title: "If you’d like us to contact you about single payer, please provide your email address.",
+     validators: [
+      {
+       type: "email"
+      }
+     ]
     }
    ]
   }
