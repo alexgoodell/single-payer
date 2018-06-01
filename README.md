@@ -15,6 +15,14 @@ All of the web interface is included in this repository, under the /public_html 
 
 The excel-based model uses a series of lookup tables to estimate changes in tax burden and healthcare spending. It estimates these changes by assessing the impact of the California State single-payer bill (SB 562) on households. The model is available in this repository in the /model directory. 
 
+## Spreadserve server
+
+[SpreadServe](http://spreadserve.com/) is a tool that allows users to execute excel calculations on a remote computer without an installation (or active instance) of Microsfot Excel, and allows access to those calculations through a python API. It uses [Tornado](http://www.tornadoweb.org/) to serve data.
+
+The SpreadServe server (which runs exclusively in Windows Server) is stored as a public Amazon Machine Image (AMI): **link pending**. The default administrator password is ```health economics```. The program requires at least 4GB of RAM, and runs well on a t2.medium EC2 instance with few users. A custom python script defines an API to interact with the SpreadServe service, located at /spreadserve_server/api.py. This file is pre-installed on the AMI.
+
+
+
 
 
 Contributers (alphabetical)
