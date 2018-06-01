@@ -91,79 +91,191 @@
  loadingHtml: "Loading....",
  pages: [
   {
-   name: "p_kindofinsurance",   
-   elements: [
-    {
-     type: "dropdown",
-     name: "q_kindofinsurance",
-     title: "What kind of health insurance did your family have last year?",
-     description: "Select only one. ",
-     choices: [
-      {
-       value: "Employer Provided",
-       text: "Private insurance from my work"
-      },
-      {
-       value: "Bronze 60",
-       text: "Bronze 60"
-      },
-      {
-       value: "Silver 70",
-       text: "Silver 70"
-      },
-      {
-       value: "Gold 80",
-       text: "Gold 80"
-      },
-      {
-       value: "Platinum 90",
-       text: "Platinum 90"
-      },
-      {
-       value: "Medicare A/B",
-       text: "Medicare A/B"
-      }
-      // {
-      //  value: "1800-1850",
-      //  text: "Private insurance from the ACA exchange"
-      // },
-      // {
-      //  value: "1850-1900",
-      //  text: "Traditional Medicare"
-      // },
-      // {
-      //  value: "1900-1950",
-      //  text: "Medicare advantage"
-      // },
-      // {
-      //  value: "after 1950",
-      //  text: "MediCal"
-      // },
-      // {
-      //  value: "item1",
-      //  text: "Veteran’s Administration"
-      // },
-      // {
-      //  value: "item2",
-      //  text: "Other"
-      // }
-     ]
-    }
-   ]
-  },
-  {
    name: "p_premiums",
    elements: [
     {
      type: "dropdown",
      name: "q_premiums",
-     title: "How much did the family spend last year on health insurance premiums? ",
+     title: "How much did your household spend last year on health insurance premiums? ",
      description: "For example, if insured from work report your premium contributions, or if from the ACA exchange report the portion not covered by an ACA subsidy.",
      choices: [
       {
        value: "dont_know",
        text: "I don't know"
       },
+      {
+       value: 250,
+       text: "$0 - $500"
+      },
+      {
+       value: 750.5,
+       text: "$501 - $1000"
+      },
+      {
+       value: 1250.5,
+       text: "$1001 - $1500"
+      },
+      {
+       value: 1750.5,
+       text: "$1501 - $2000"
+      },
+      {
+       value: 2250.5,
+       text: "$2001 - $2500"
+      },
+      {
+       value: 2750.5,
+       text: "$2501 - $3000"
+      },
+      {
+       value: 3250.5,
+       text: "$3001 - $3500"
+      },
+      {
+       value: 3750.5,
+       text: "$3501 - $4000"
+      },
+      {
+       value: 4250.5,
+       text: "$4001 - $4500"
+      },
+      {
+       value: 4750.5,
+       text: "$4501 - $5000"
+      },
+      {
+       value: 5250.5,
+       text: "$5001 - $5500"
+      },
+      {
+       value: 5750.5,
+       text: "$5501 - $6000"
+      },
+      {
+       value: 6250.5,
+       text: "$6001 - $6500"
+      },
+      {
+       value: 6750.5,
+       text: "$6501 - $7000"
+      },
+      {
+       value: 7250.5,
+       text: "$7001 - $7500"
+      },
+      {
+       value: 7750.5,
+       text: "$7501 - $8000"
+      },
+      {
+       value: 8250.5,
+       text: "$8001 - $8500"
+      },
+      {
+       value: 8750.5,
+       text: "$8501 - $9000"
+      },
+      {
+       value: 9250.5,
+       text: "$9001 - $9500"
+      },
+      {
+       value: 9750.5,
+       text: "$9501 - $10000"
+      },
+      {
+       value: 10250.5,
+       text: "$10001 - $10500"
+      },
+      {
+       value: 10750.5,
+       text: "$10501 - $11000"
+      },
+      {
+       value: 11250.5,
+       text: "$11001 - $11500"
+      },
+      {
+       value: 11750.5,
+       text: "$11501 - $12000"
+      },
+      {
+       value: 12250.5,
+       text: "$12001 - $12500"
+      },
+      {
+       value: 12750.5,
+       text: "$12501 - $13000"
+      },
+      {
+       value: 13250.5,
+       text: "$13001 - $13500"
+      },
+      {
+       value: 13750.5,
+       text: "$13501 - $14000"
+      },
+      {
+       value: 14250.5,
+       text: "$14001 - $14500"
+      },
+      {
+       value: 14750.5,
+       text: "$14501 - $15000"
+      },
+      {
+       value: 15250.5,
+       text: "$15001 - $15500"
+      },
+      {
+       value: 15750.5,
+       text: "$15501 - $16000"
+      },
+      {
+       value: 16250.5,
+       text: "$16001 - $16500"
+      },
+      {
+       value: 16750.5,
+       text: "$16501 - $17000"
+      },
+      {
+       value: 17250.5,
+       text: "$17001 - $17500"
+      },
+      {
+       value: 17750.5,
+       text: "$17501 - $18000"
+      },
+      {
+       value: 18250.5,
+       text: "$18001 - $18500"
+      },
+      {
+       value: 18750.5,
+       text: "$18501 - $19000"
+      },
+      {
+       value: 19250.5,
+       text: "$19001 - $19500"
+      },
+      {
+       value: 19750.5,
+       text: "$19501 - $20000"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   name: "p_oop",
+   elements: [
+    {
+     type: "dropdown",
+     name: "q_oop",
+     title: "What were your out-of-pocket expenditures, for deductibles, copayments, and uncovered services? ",
+     description: "Please think about primary care and specialist office visits, hospitalization / surgery, counseling / therapy, maternity / infertility treatments, chiropractor / acupuncture, and all prescription and over-the-counter medicines.",
+     choices: [
       {
        value: 250,
        text: "$0 - $500"
@@ -339,485 +451,7 @@
      placeHolder: "1"
     }
    ],
-   visibleIf: "{q_premiums} = \"dont_know\"",
    title: "ach-hh"
-  },
-  {
-   name: "p_act-hh-expanded",
-   elements: [
-    {
-     type: "text",
-     name: "q_hh1_age",
-     title: "How old is person 1?"
-    },
-    {
-     type: "dropdown",
-     name: "q_hh1_conditions",
-     visibleIf: "{q_num_hh_mem} > 0",
-     title: "Gender of person 1?",
-     choices: [
-      {
-       value: "Male",
-       text: "Male"
-      },
-      {
-       value: "Female",
-       text: "Female"
-      }
-     ]
-    },
-    {
-     type: "dropdown",
-     name: "q_hh1_conditions",
-     title: "Does person 1 have any of the following conditions?",
-     choices: [
-      {
-       value: "None",
-       text: "None"
-      },
-      {
-       value: "Asthma",
-       text: "Asthma"
-      },
-      {
-       value: "Diabetes",
-       text: "Diabetes"
-      },
-      {
-       value: "Parkinson's disease",
-       text: "Parkinson's disease"
-      },
-      {
-       value: "Opioid Disorder",
-       text: "Opioid disorder"
-      }
-     ]
-    },
-    {
-     type: "text",
-     name: "q_hh2_age",
-     visibleIf: "{q_num_hh_mem} > 1",
-     title: "How old is person 2?"
-    },
-    {
-     type: "dropdown",
-     name: "q_hh2_conditions",
-     visibleIf: "{q_num_hh_mem} > 1",
-     title: "Gender of person 2?",
-     choices: [
-      {
-       value: "Male",
-       text: "Male"
-      },
-      {
-       value: "Female",
-       text: "Female"
-      }
-     ]
-    },
-    {
-     type: "dropdown",
-     name: "q_hh2_conditions",
-     visibleIf: "{q_num_hh_mem} > 1",
-     title: "Does person 2 have any of the following conditions?",
-     choices: [
-      {
-       value: "None",
-       text: "None"
-      },
-      {
-       value: "Asthma",
-       text: "Asthma"
-      },
-      {
-       value: "Diabetes",
-       text: "Diabetes"
-      },
-      {
-       value: "Parkinson's disease",
-       text: "Parkinson's disease"
-      },
-      {
-       value: "Opioid Disorder",
-       text: "Opioid disorder"
-      }
-     ]
-    },
-    {
-     type: "text",
-     name: "q_hh3_age",
-     visibleIf: "{q_num_hh_mem} > 2",
-     title: "How old is person 3?"
-    },
-    {
-     type: "dropdown",
-     name: "q_hh3_conditions",
-     visibleIf: "{q_num_hh_mem} > 2",
-     title: "Gender of person 3?",
-     choices: [
-      {
-       value: "Male",
-       text: "Male"
-      },
-      {
-       value: "Female",
-       text: "Female"
-      }
-     ]
-    },
-    {
-     type: "dropdown",
-     name: "q_hh3_conditions",
-     visibleIf: "{q_num_hh_mem} > 2",
-     title: "Does person 3 have any of the following conditions?",
-     choices: [
-      {
-       value: "None",
-       text: "None"
-      },
-      {
-       value: "Asthma",
-       text: "Asthma"
-      },
-      {
-       value: "Diabetes",
-       text: "Diabetes"
-      },
-      {
-       value: "Parkinson's disease",
-       text: "Parkinson's disease"
-      },
-      {
-       value: "Opioid Disorder",
-       text: "Opioid disorder"
-      }
-     ]
-    },
-    {
-     type: "text",
-     name: "q_hh4_age",
-     visibleIf: "{q_num_hh_mem} > 3",
-     title: "How old is person 4?"
-    },
-    {
-     type: "dropdown",
-     name: "q_hh4_conditions",
-     visibleIf: "{q_num_hh_mem} > 3",
-     title: "Gender of person 4?",
-     choices: [
-      {
-       value: "Male",
-       text: "Male"
-      },
-      {
-       value: "Female",
-       text: "Female"
-      }
-     ]
-    },
-    {
-     type: "dropdown",
-     name: "q_hh4_conditions",
-     visibleIf: "{q_num_hh_mem} > 3",
-     title: "Does person 4 have any of the following conditions?",
-     choices: [
-      {
-       value: "None",
-       text: "None"
-      },
-      {
-       value: "Asthma",
-       text: "Asthma"
-      },
-      {
-       value: "Diabetes",
-       text: "Diabetes"
-      },
-      {
-       value: "Parkinson's disease",
-       text: "Parkinson's disease"
-      },
-      {
-       value: "Opioid Disorder",
-       text: "Opioid disorder"
-      }
-     ]
-    },
-    {
-     type: "text",
-     name: "q_hh5_age",
-     visibleIf: "{q_num_hh_mem} > 4",
-     title: "How old is person 5?"
-    },
-    {
-     type: "dropdown",
-     name: "q_hh5_conditions",
-     visibleIf: "{q_num_hh_mem} > 4",
-     title: "Gender of person 5?",
-     choices: [
-      {
-       value: "Male",
-       text: "Male"
-      },
-      {
-       value: "Female",
-       text: "Female"
-      }
-     ]
-    },
-    {
-     type: "dropdown",
-     name: "q_hh5_conditions",
-     visibleIf: "{q_num_hh_mem} > 4",
-     title: "Does person 5 have any of the following conditions?",
-     choices: [
-      {
-       value: "None",
-       text: "None"
-      },
-      {
-       value: "Asthma",
-       text: "Asthma"
-      },
-      {
-       value: "Diabetes",
-       text: "Diabetes"
-      },
-      {
-       value: "Parkinson's disease",
-       text: "Parkinson's disease"
-      },
-      {
-       value: "Opioid Disorder",
-       text: "Opioid disorder"
-      }
-     ]
-    },
-    {
-     type: "text",
-     name: "q_hh6_age",
-     visibleIf: "{q_num_hh_mem} > 5",
-     title: "How old is person 6?"
-    },
-    {
-     type: "dropdown",
-     name: "q_hh6_conditions",
-     visibleIf: "{q_num_hh_mem} > 5",
-     title: "Gender of person 6?",
-     choices: [
-      {
-       value: "Male",
-       text: "Male"
-      },
-      {
-       value: "Female",
-       text: "Female"
-      }
-     ]
-    },
-    {
-     type: "dropdown",
-     name: "q_hh6_conditions",
-     visibleIf: "{q_num_hh_mem} > 5",
-     title: "Does person 6 have any of the following conditions?",
-     choices: [
-      {
-       value: "None",
-       text: "None"
-      },
-      {
-       value: "Asthma",
-       text: "Asthma"
-      },
-      {
-       value: "Diabetes",
-       text: "Diabetes"
-      },
-      {
-       value: "Parkinson's disease",
-       text: "Parkinson's disease"
-      },
-      {
-       value: "Opioid Disorder",
-       text: "Opioid disorder"
-      }
-     ]
-    }
-   ],
-   visibleIf: "{q_premiums} = \"dont_know\""
-  },
-  {
-   name: "p_oop",
-   elements: [
-    {
-     type: "dropdown",
-     name: "q_oop",
-     title: "What were your out-of-pocket expenditures, for deductibles, copayments, and uncovered services? ",
-     description: "Please think about primary care and specialist office visits, hospitalization / surgery, counseling / therapy, maternity / infertility treatments, chiropractor / acupuncture, and all prescription and over-the-counter medicines.",
-     choices: [
-      {
-       value: 250,
-       text: "$0 - $500"
-      },
-      {
-       value: 750.5,
-       text: "$501 - $1000"
-      },
-      {
-       value: 1250.5,
-       text: "$1001 - $1500"
-      },
-      {
-       value: 1750.5,
-       text: "$1501 - $2000"
-      },
-      {
-       value: 2250.5,
-       text: "$2001 - $2500"
-      },
-      {
-       value: 2750.5,
-       text: "$2501 - $3000"
-      },
-      {
-       value: 3250.5,
-       text: "$3001 - $3500"
-      },
-      {
-       value: 3750.5,
-       text: "$3501 - $4000"
-      },
-      {
-       value: 4250.5,
-       text: "$4001 - $4500"
-      },
-      {
-       value: 4750.5,
-       text: "$4501 - $5000"
-      },
-      {
-       value: 5250.5,
-       text: "$5001 - $5500"
-      },
-      {
-       value: 5750.5,
-       text: "$5501 - $6000"
-      },
-      {
-       value: 6250.5,
-       text: "$6001 - $6500"
-      },
-      {
-       value: 6750.5,
-       text: "$6501 - $7000"
-      },
-      {
-       value: 7250.5,
-       text: "$7001 - $7500"
-      },
-      {
-       value: 7750.5,
-       text: "$7501 - $8000"
-      },
-      {
-       value: 8250.5,
-       text: "$8001 - $8500"
-      },
-      {
-       value: 8750.5,
-       text: "$8501 - $9000"
-      },
-      {
-       value: 9250.5,
-       text: "$9001 - $9500"
-      },
-      {
-       value: 9750.5,
-       text: "$9501 - $10000"
-      },
-      {
-       value: 10250.5,
-       text: "$10001 - $10500"
-      },
-      {
-       value: 10750.5,
-       text: "$10501 - $11000"
-      },
-      {
-       value: 11250.5,
-       text: "$11001 - $11500"
-      },
-      {
-       value: 11750.5,
-       text: "$11501 - $12000"
-      },
-      {
-       value: 12250.5,
-       text: "$12001 - $12500"
-      },
-      {
-       value: 12750.5,
-       text: "$12501 - $13000"
-      },
-      {
-       value: 13250.5,
-       text: "$13001 - $13500"
-      },
-      {
-       value: 13750.5,
-       text: "$13501 - $14000"
-      },
-      {
-       value: 14250.5,
-       text: "$14001 - $14500"
-      },
-      {
-       value: 14750.5,
-       text: "$14501 - $15000"
-      },
-      {
-       value: 15250.5,
-       text: "$15001 - $15500"
-      },
-      {
-       value: 15750.5,
-       text: "$15501 - $16000"
-      },
-      {
-       value: 16250.5,
-       text: "$16001 - $16500"
-      },
-      {
-       value: 16750.5,
-       text: "$16501 - $17000"
-      },
-      {
-       value: 17250.5,
-       text: "$17001 - $17500"
-      },
-      {
-       value: 17750.5,
-       text: "$17501 - $18000"
-      },
-      {
-       value: 18250.5,
-       text: "$18001 - $18500"
-      },
-      {
-       value: 18750.5,
-       text: "$18501 - $19000"
-      },
-      {
-       value: 19250.5,
-       text: "$19001 - $19500"
-      },
-      {
-       value: 19750.5,
-       text: "$19501 - $20000"
-      }
-     ]
-    }
-   ]
   },
   {
    name: "p_income",
