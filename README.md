@@ -19,20 +19,17 @@ The excel-based model uses a series of lookup tables to estimate changes in tax 
 
 [SpreadServe](http://spreadserve.com/) is a tool that allows users to execute excel calculations on a remote computer without an installation (or active instance) of Microsfot Excel, and allows access to those calculations through a python API. It uses [Tornado](http://www.tornadoweb.org/) to serve data.
 
-The SpreadServe server (which runs exclusively in Windows Server) is stored as a public Amazon Machine Image (AMI): **link pending**. The default administrator password is ```health economics```. The program requires at least 4GB of RAM, and runs well on a t2.medium EC2 instance with few users. A custom python script defines an API to interact with the SpreadServe service, located at /spreadserve_server/api.py. This file is pre-installed on the AMI.
+The SpreadServe server (platform: Windows Server) is stored as a public Amazon Machine Image (AMI): **link pending**. The default administrator password is ```health economics```. The program requires at least 4GB of RAM, and runs well on a t2.medium EC2 instance with few users. A custom python script defines an API to interact with the SpreadServe service, located at /spreadserve_server/api.py. This file is pre-installed on the AMI.
 
 
-
-
-
-Contributers (alphabetical)
----------------------------
+<!-- Contributers (alphabetical)
 - Dr. Hank Abrons, MD, past president, California Chapter, Physicians for a National Health Plan
 - Dr. Alex Goodell, Resident Physician, Stanford University
 - Benjamin Herzel, Medical Student, Loma Linda University Physicians for a National Health Plan
 - Dr. James G Kahn, Professor at University of San Francisco California and past president, California Chapter, Physicians for a National Health Plan 
 - Andrew McGuire, Executive Director, California OneCare
 - Todd Lash, Managing Director, Tenaya Partners
+ -->
 
 Funding
 -------
