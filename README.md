@@ -17,7 +17,7 @@ The excel-based model uses a series of lookup tables to estimate changes in tax 
 
 ## Spreadserve server
 
-[SpreadServe](http://spreadserve.com/) is a tool that allows users to execute excel calculations on a remote computer without an installation (or active instance) of Microsfot Excel, and allows access to those calculations through a python API. It uses [Tornado](http://www.tornadoweb.org/) to serve data.
+[SpreadServe](http://spreadserve.com/) is a tool that allows users to execute excel calculations on a remote computer without an installation (or active instance) of Microsoft Excel, and allows access to those calculations through a python API. It uses [Tornado](http://www.tornadoweb.org/) to serve data.
 
 The SpreadServe server (platform: Windows Server) is stored as a public Amazon Machine Image (AMI): **link pending**. The default administrator password is ```health economics```. The program requires at least 4GB of RAM, and runs well on a t2.medium EC2 instance with few users. A custom python script defines an API to interact with the SpreadServe service, located at /spreadserve_server/api.py. This file is pre-installed on the AMI.
 
@@ -33,4 +33,4 @@ The SpreadServe server (platform: Windows Server) is stored as a public Amazon M
 
 Funding
 -------
-The project has not recieved any insitutional funding.
+The project has not received any institutional funding.

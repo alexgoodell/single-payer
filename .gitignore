@@ -25,7 +25,7 @@
 *.sublime-workspace
 
 # Fabric command line tools
-fabfile.*
+fabfile.pyc
 
 # Archive of older versions of website, design files
 archive/**
