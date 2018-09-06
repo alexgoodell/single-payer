@@ -11,11 +11,22 @@ There are three core components of this software:
 
 All of the web interface is included in this repository, under the /public_html directory. The system utilizes [SurveyJS](http://surveyjs.io) to manage the series of questions. 
 
+Include printable/savable version with date and time and name of website (url, attribution). Look into image/pdf saving. 
+
+include version number in URL 
+------------
+
+
 ## Excel model
 
 The excel-based model uses a series of lookup tables to estimate changes in tax burden and healthcare spending. It estimates these changes by assessing the impact of the California State single-payer bill (SB 562) on households. The model is available in this repository in the /model directory. 
 
 ## Spreadserve server
+
+5mg limit
+
+
+
 
 [SpreadServe](http://spreadserve.com/) is a tool that allows users to execute excel calculations on a remote computer without an installation (or active instance) of Microsoft Excel, and allows access to those calculations through a python API. It uses [Tornado](http://www.tornadoweb.org/) to serve data.
 
@@ -58,3 +69,28 @@ https://graph.microsoft.com/v1.0/me/drive/items/EE678B404BA8B3E3!133/workbook/wo
 {
 "values" : 5000
 }
+
+
+
+
+
+
+Admin consent: https://login.microsoftonline.com/singlepayercost.onmicrosoft.com/adminconsent?client_id=c0ebd997-2a20-4ca7-a1df-4ac3467fcc84&state=12345&redirect_uri=https://singlepayercost.org
+
+
+Application ID: c0ebd997-2a20-4ca7-a1df-4ac3467fcc84
+
+
+password: ssraqKGVQBO7431{(%[spF7
+
+
+
+POST https://login.microsoftonline.com/singlepayercost.onmicrosoft.com/oauth2/v2.0/token
+Host: login.microsoftonline.com
+Content-Type: application/x-www-form-urlencoded
+
+client_id=c0ebd997-2a20-4ca7-a1df-4ac3467fcc84
+&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
+&client_secret=ssraqKGVQBO7431{(%[spF7
+&grant_type=client_credentials
+

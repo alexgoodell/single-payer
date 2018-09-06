@@ -534,7 +534,26 @@
               document
                   .querySelector('#surveyResult')
                   .innerHTML = "result: " + JSON.stringify(result.data);
+            myResult = JSON.stringify(result.data)
+            headers = "Host: graph.microsoft.com\
+                      Connection: keep-alive\
+                      Pragma: no-cache\
+                      Cache-Control: no-cache\
+                      Accept: application/json, text/plain, */*\
+                      Origin: https://developer.microsoft.com\
+                      Authorization: Bearer EwBIA8l6BAAURSN/FHlDW5xN74t6GzbtsBBeBUYAAVojGsgRMlvR92Cv50Bkpj3vxWyXCeQ6iro7oGAl2VAEyD6RPWHcsHM3Jl8V9HjVLA+vAD3eIzbdMKUeyDKULDVlaaVTS2SRHC5cRzVHl85nvhXtH3LD7zN9KJrscXzdEl439x2F+ezEnSJ8Grm8+jxicixlV31/FN68Yz8whD2T96JBRjLpAOKCQIb5GUuACj1idvJfTkuj8+oo677v5wZeDlctDSW8z4TdIMCwbRwpvljj+7I37BXgEYxSv8+I6fnNwQgze5GtdrPX7QGKpC3Rv0ETbG+SrSDU7NMrpgNb1ldT8zJmCkHVac040Rd2zdpeLAHURlnT8xpxnnd7NKUDZgAACKZLPEthl5m2GAJafsA8IuedPGuZihRXDMh/Ksgi7QzAy12y03ovndMvgVJf+mFoPJ5jY8k8bkmmoJOdLH6FHU+Dx3SHz6laKNaq/b1mdF8wYf9+pnHccyFe+t2wxSC1BaiI3ZVrbEk96XWuo5GXlRXYhMFqeh/EWbvUG7wRfw7+oZkXjxCNf2daFxBh8gE734a72YeRBHt4wxxI0xUNywZ48hatt1GMVfNCjhNmgEBDO4WsRCUk6O22jK9IxKtVwjXnOzvBB4xaC5+qkQ9zK6KbjJjfsk2xq0zwnWuHR9/DLoZCUSA1YKYzxN0Zk950wvc6elwqS1YOYWQ2/ougSjLu9rKnr1qkif+AIzDjLBgJXn5EGZpfKBFv985Nj+Ch36vvy2OapM1iKo12iD3qQzPCOkuejtSXpAn+1XNzEHjMXuCt77n8Pxl6AqUcpGfipCbdqUWobtOcFrJ4qP3ghZ1ZZGF5tK4NDUMM2RtODXG+AnE+Y6TnZYMNvRo7tO5QfxfHR59wYsoHsX9Hpkst5DSWcuPBwV970NQ9NkX1R2WUTvzYK/Rs5cAAkFsnx54KOqvR/mAvK6SAFaCO2yW7rGOqtThnT18iYZBhYkMJ3Ujx7ZzhmfBjBqEXjaWY7/GZSh4PPwz7/T6JHmjIt6uZU396YRPDP2Q0YD33WH67tjBvjexutcgADCfIRNpWCMiLbZZizZLqVFo60YjO0970cY/10FAC\
+                      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36\
+                       Content-type: application/json\
+                       Referer: https://developer.microsoft.com/en-us/graph/graph-explorer\
+                       Accept-Encoding: gzip, deflate, br\
+                       Accept-Language: en-US,en;q=0.9,fr;q=0.8"
+
+
           });
+
+
+          
+
 
       survey
           .onUpdateQuestionCssClasses
