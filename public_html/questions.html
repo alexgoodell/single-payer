@@ -65,7 +65,7 @@
 
         <div id="surveyElement"></div>
         <div id="surveyResult"></div>
-
+        <!-- <div id="resultHere"></div> -->
 
 
 
@@ -74,8 +74,10 @@
 
 
     <!-- survey js -->
-    <script src="https://unpkg.com/jquery"></script>
-    <script src="https://surveyjs.azureedge.net/1.0.15/survey.jquery.min.js"></script>
+    <!-- <script src="https://unpkg.com/jquery"></script> -->
+    <!-- <script src="https://surveyjs.azureedge.net/1.0.61/survey.jquery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://surveyjs.azureedge.net/1.0.61/survey.jquery.min.js"></script>
     <link href="static/styles/survey.css" type="text/css" rel="stylesheet"/>
 
     <script type="text/javascript"> 
@@ -528,32 +530,99 @@
 
       window.survey = new Survey.Model(json);
 
-      survey
-          .onComplete
-          .add(function (result) {
-              document
-                  .querySelector('#surveyResult')
-                  .innerHTML = "result: " + JSON.stringify(result.data);
-            myResult = JSON.stringify(result.data)
-            headers = "Host: graph.microsoft.com\
-                      Connection: keep-alive\
-                      Pragma: no-cache\
-                      Cache-Control: no-cache\
-                      Accept: application/json, text/plain, */*\
-                      Origin: https://developer.microsoft.com\
-                      Authorization: Bearer EwBIA8l6BAAURSN/FHlDW5xN74t6GzbtsBBeBUYAAVojGsgRMlvR92Cv50Bkpj3vxWyXCeQ6iro7oGAl2VAEyD6RPWHcsHM3Jl8V9HjVLA+vAD3eIzbdMKUeyDKULDVlaaVTS2SRHC5cRzVHl85nvhXtH3LD7zN9KJrscXzdEl439x2F+ezEnSJ8Grm8+jxicixlV31/FN68Yz8whD2T96JBRjLpAOKCQIb5GUuACj1idvJfTkuj8+oo677v5wZeDlctDSW8z4TdIMCwbRwpvljj+7I37BXgEYxSv8+I6fnNwQgze5GtdrPX7QGKpC3Rv0ETbG+SrSDU7NMrpgNb1ldT8zJmCkHVac040Rd2zdpeLAHURlnT8xpxnnd7NKUDZgAACKZLPEthl5m2GAJafsA8IuedPGuZihRXDMh/Ksgi7QzAy12y03ovndMvgVJf+mFoPJ5jY8k8bkmmoJOdLH6FHU+Dx3SHz6laKNaq/b1mdF8wYf9+pnHccyFe+t2wxSC1BaiI3ZVrbEk96XWuo5GXlRXYhMFqeh/EWbvUG7wRfw7+oZkXjxCNf2daFxBh8gE734a72YeRBHt4wxxI0xUNywZ48hatt1GMVfNCjhNmgEBDO4WsRCUk6O22jK9IxKtVwjXnOzvBB4xaC5+qkQ9zK6KbjJjfsk2xq0zwnWuHR9/DLoZCUSA1YKYzxN0Zk950wvc6elwqS1YOYWQ2/ougSjLu9rKnr1qkif+AIzDjLBgJXn5EGZpfKBFv985Nj+Ch36vvy2OapM1iKo12iD3qQzPCOkuejtSXpAn+1XNzEHjMXuCt77n8Pxl6AqUcpGfipCbdqUWobtOcFrJ4qP3ghZ1ZZGF5tK4NDUMM2RtODXG+AnE+Y6TnZYMNvRo7tO5QfxfHR59wYsoHsX9Hpkst5DSWcuPBwV970NQ9NkX1R2WUTvzYK/Rs5cAAkFsnx54KOqvR/mAvK6SAFaCO2yW7rGOqtThnT18iYZBhYkMJ3Ujx7ZzhmfBjBqEXjaWY7/GZSh4PPwz7/T6JHmjIt6uZU396YRPDP2Q0YD33WH67tjBvjexutcgADCfIRNpWCMiLbZZizZLqVFo60YjO0970cY/10FAC\
-                      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36\
-                       Content-type: application/json\
-                       Referer: https://developer.microsoft.com/en-us/graph/graph-explorer\
-                       Accept-Encoding: gzip, deflate, br\
-                       Accept-Language: en-US,en;q=0.9,fr;q=0.8"
+ function bearerFun() {
+    // recieve a bearer token from the server
+      var bearerRequest = new XMLHttpRequest();
+      var tolkenUrl = 'https://login.microsoftonline.com/singlepayercost.onmicrosoft.com/oauth2/v2.0/token';
+      var params = 'client_id=a47c5bb1-d6c5-4b15-ad04-4965a6a52200&scope=https://graph.microsoft.com/.default&client_secret=Yid05ISF3R3vI1loFlLzTE6RLZTHUTT40cSpJcgLkso=&grant_type=client_credentials';
+      var bearerID;
+      bearerRequest.open('POST', tolkenUrl, true);
+      bearerRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      bearerRequest.setRequestHeader('Access-Control-Allow_Origin', '*');
+      var parsedResponse;
+      bearerRequest.onreadystatechange = function(){
+        if (bearerRequest.readyState == 4 && bearerRequest.status == 200) {
+          parsedResponse = JSON.parse(bearerRequest.responseText);
+          bearerID = parsedResponse["access_token"]
+          console.log('beearer ID success');
+          sessionFun(bearerID);
+        }
+        console.log(bearerID);
+      }
+      bearerRequest.send(params);
+      
+    }
+  function sessionFun(bearerID) {
+      // create a session, record session id
+      var sessionRequest = new XMLHttpRequest(); 
+      var responseURL = "https://graph.microsoft.com/v1.0/users/a01ab9eb-36de-4ebc-9889-3eb61d16d0e8/drives/b!8BpoJu__qEGSPkgzdPS-tpKUfASPeq9KuGIiQ7kUjgFvDlgFQHDHTYFuK27A0xlp/items/01X34IAM7MSEX2BK2PTJELELKUX4QPSWXA/workbook/createSession";
+      sessionRequest.open('POST', responseURL, true);
+      console.log(bearerID);
+      sessionRequest.setRequestHeader('Authorization', 'Bearer '+ bearerID);
+      sessionRequest.setRequestHeader('Content-Type', 'application/json');
+      sessionRequest.setRequestHeader('scope', 'Files.ReadWrite.All');
+      var persist = '{"persistChanges": false}';
+      sessionRequest.onreadystatechange = function() {
+        console.log('session entered...');
+        console.log('readystate:'+sessionRequest.readyState);
+        console.log('status'+sessionRequest.status);
 
-
-          });
-
-
-          
-
+        if (sessionRequest.readyState == 4 && sessionRequest.status == 201) {
+          parsedResponse = JSON.parse(sessionRequest.responseText);
+          var sessionID = parsedResponse["id"];
+          console.log('session created');
+          inputFun(sessionID,bearerID,survey);
+        }
+      }
+      sessionRequest.send(persist);
+      
+    }
+  function inputFun(sessionID,bearerID,survey) {
+      // update input values on session instance 
+      var inputRequest = new XMLHttpRequest(); 
+      var inputURL = "https://graph.microsoft.com/v1.0/users/a01ab9eb-36de-4ebc-9889-3eb61d16d0e8/drives/b!8BpoJu__qEGSPkgzdPS-tpKUfASPeq9KuGIiQ7kUjgFvDlgFQHDHTYFuK27A0xlp/items/01X34IAM7MSEX2BK2PTJELELKUX4QPSWXA/workbook/worksheets('IO')/range(address='C3:C6')";
+      var data = '{"values": [['+survey.getValue('q_income')+'], ['+survey.getValue('q_num_hh_mem')+'], ['+survey.getValue('q_premiums')+'], ['+survey.getValue('q_oop')+']]}';
+      console.log(data);
+      inputRequest.open('PATCH', inputURL, false);
+      inputRequest.setRequestHeader('Authorization', 'Bearer '+bearerID);
+      inputRequest.setRequestHeader('Content-Type', 'application/json');
+      inputRequest.setRequestHeader('scope', 'Files.ReadWrite.All');
+      inputRequest.setRequestHeader('workbook-session-id', sessionID);
+      inputRequest.onreadystatechange = function() {
+        if (inputRequest.readyState == 4 && inputRequest.status == 200) {
+          console.log('input completed');
+          receptFun(sessionID,bearerID);
+        }
+      }
+      inputRequest.send(data);
+          }
+  function receptFun(sessionID,bearerID) {
+      // recieve results
+      var dataResponse = new XMLHttpRequest(); 
+      var dataURL = "https://graph.microsoft.com/v1.0/users/a01ab9eb-36de-4ebc-9889-3eb61d16d0e8/drives/b!8BpoJu__qEGSPkgzdPS-tpKUfASPeq9KuGIiQ7kUjgFvDlgFQHDHTYFuK27A0xlp/items/01X34IAM7MSEX2BK2PTJELELKUX4QPSWXA/workbook/worksheets('IO')/range(address='C10:C13')";
+      dataResponse.open('GET', dataURL, true);
+      dataResponse.setRequestHeader('Authorization', 'Bearer ' + bearerID);
+      dataResponse.setRequestHeader('Content-Type', 'application/json');
+      dataResponse.setRequestHeader('scope', 'Files.ReadWrite.All');
+      dataResponse.setRequestHeader('workbook-session-id', sessionID);
+      dataResponse.onreadystatechange = function() {
+        if (dataResponse.readyState == 4 && dataResponse.status == 200) {
+          parsedResponse = JSON.parse(dataResponse.responseText); 
+          var cost = parsedResponse["text"][3];
+          console.log(); 
+          document.getElementById("surveyElement").innerHTML = "<h2>You currently spend: " + parsedResponse["text"][0] + "</h2>";
+          document.getElementById("surveyElement").innerHTML += "<h2>Added taxes under single payer:  " + parsedResponse["text"][1] + "</h2>";
+          document.getElementById("surveyElement").innerHTML += "<h2>Total single payer cost:  " + parsedResponse["text"][2] + "</h2>";
+          if (cost[0][0] == "-") {
+          document.getElementById("surveyElement").innerHTML += "<h1>You would spend: " + cost[0].slice(1) + " more</h1>";
+          }
+          else {
+          	document.getElementById("surveyElement").innerHTML += "<h1>You would save: " + cost + "</h1>";
+          }
+        }
+      }
+      dataResponse.send(null);
+  }   
 
       survey
           .onUpdateQuestionCssClasses
@@ -577,7 +646,7 @@
               }
           });
 
-      $("#surveyElement").Survey({model: survey});
+      $("#surveyElement").Survey({model: survey, onComplete:bearerFun});
 
 
     </script>
