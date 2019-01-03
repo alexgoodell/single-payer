@@ -522,8 +522,8 @@ var json = {
  startSurveyText: "Start",
  pagePrevText: "<",
  pageNextText: ">",
- completeText: "Calculate",
- isSinglePage: true
+ completeText: "Calculate"
+ // isSinglePage: true     <- useful for debugging
 }
 
 // ----------------- intialize survey --------------------
@@ -559,22 +559,20 @@ $("#surveyElement").Survey({model: survey, onComplete:finishSurvey});
 
 // start bearer function and session request as user completes survey
 // potential problem: user finishes survey before bearer/session response 
-// complete; will initialize bearer and session id's as zero, and will check 
-// that bearer/session complete before we starting results fetching
+// complete; will not show the calculate button until bearer/session ready
 
 var bearerID = 0
 var sessionID = 0
-$(document).ready(bearerFun()) 
+$(document).ready(function() {
+  $("input.btn.sv_complete_btn").prop("disabled",true);
+  bearerFun();
+}());
 
 
 // ----------------- core data functions --------------------
 
 function finishSurvey() {
-  if (sessionID != 0 && bearerID != 0) {
-    inputFun(sessionID,bearerID,survey);
-  } else {
-    alert("wait")
-  }
+  inputFun(sessionID,bearerID,survey);
 }
 
 function bearerFun() {
@@ -617,6 +615,8 @@ function sessionFun(bearerID) {
         parsedResponse = JSON.parse(sessionRequest.responseText);
         sessionID = parsedResponse["id"];
         console.log('session created');
+        $("input.btn.sv_complete_btn").prop("disabled",false);
+
       }
     }
     sessionRequest.send(persist); 
@@ -731,6 +731,7 @@ function receptFun(sessionID,bearerID,survey) {
               </td>
             </table>
           </div> <!-- survey result end -->
+          <a href="questions.html"><input type="button" id="restart_button" value="Restart calculator"></a>
           <input type="button" id="print_button" value="Print your results" onClick="printDiv('surveyResult')">`
 
 
