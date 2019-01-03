@@ -88,10 +88,33 @@
           .applyTheme("bootstrap");
 
       var json = {
- title: "Single payer",
+  title: "Single payer",
  completedHtml: "Please wait while your results are loaded.",
  loadingHtml: "Loading....",
  pages: [
+  {
+   name: "p_bill",
+   elements: [
+    {
+     type: "radiogroup",
+     name: "q_bill",
+     title: "Select single-payer bill:",
+     description: "Choose a proposed single-payer healthcare bill that will be used for our model.",
+     defaultValue: "HR 676",
+     choices: [
+      {
+       value: "SB 562",
+       text: "SB 562 "
+      },
+      {
+       value: "HR 676",
+       text: "HR 676"
+      }
+     ]
+    }
+   ],
+   description: "Select"
+  },
   {
    name: "p_premiums",
    elements: [
@@ -100,6 +123,8 @@
      name: "q_premiums",
      title: "How much did your household spend last year on health insurance premiums? ",
      description: "For example, if insured from work report your premium contributions, or if from the ACA exchange report the portion not covered by an ACA subsidy. Please report the total for all insurance.",
+     isRequired: true,
+     requiredErrorText: "Please select a value.",
      choices: [
       {
        value: 250,
@@ -107,161 +132,165 @@
       },
       {
        value: 750.5,
-       text: "$501 - $1000"
+       text: "$501 - $1,000"
       },
       {
        value: 1250.5,
-       text: "$1001 - $1500"
+       text: "$1,001 - $1,500"
       },
       {
        value: 1750.5,
-       text: "$1501 - $2000"
+       text: "$1,501 - $2,000"
       },
       {
        value: 2250.5,
-       text: "$2001 - $2500"
+       text: "$2,001 - $2,500"
       },
       {
        value: 2750.5,
-       text: "$2501 - $3000"
+       text: "$2,501 - $3,000"
       },
       {
        value: 3250.5,
-       text: "$3001 - $3500"
+       text: "$3,001 - $3,500"
       },
       {
        value: 3750.5,
-       text: "$3501 - $4000"
+       text: "$3,501 - $4,000"
       },
       {
        value: 4250.5,
-       text: "$4001 - $4500"
+       text: "$4,001 - $4,500"
       },
       {
        value: 4750.5,
-       text: "$4501 - $5000"
+       text: "$4,501 - $5,000"
       },
       {
        value: 5250.5,
-       text: "$5001 - $5500"
+       text: "$5,001 - $5,500"
       },
       {
        value: 5750.5,
-       text: "$5501 - $6000"
+       text: "$5,501 - $6,000"
       },
       {
        value: 6250.5,
-       text: "$6001 - $6500"
+       text: "$6,001 - $6,500"
       },
       {
        value: 6750.5,
-       text: "$6501 - $7000"
+       text: "$6,501 - $7,000"
       },
       {
        value: 7250.5,
-       text: "$7001 - $7500"
+       text: "$7,001 - $7,500"
       },
       {
        value: 7750.5,
-       text: "$7501 - $8000"
+       text: "$7,501 - $8,000"
       },
       {
        value: 8250.5,
-       text: "$8001 - $8500"
+       text: "$8,001 - $8,500"
       },
       {
        value: 8750.5,
-       text: "$8501 - $9000"
+       text: "$8,501 - $9,000"
       },
       {
        value: 9250.5,
-       text: "$9001 - $9500"
+       text: "$9,001 - $9,500"
       },
       {
        value: 9750.5,
-       text: "$9501 - $10000"
+       text: "$9,501 - $10,000"
       },
       {
        value: 10250.5,
-       text: "$10001 - $10500"
+       text: "$10,001 - $10,500"
       },
       {
        value: 10750.5,
-       text: "$10501 - $11000"
+       text: "$10,501 - $11,000"
       },
       {
        value: 11250.5,
-       text: "$11001 - $11500"
+       text: "$11,001 - $11,500"
       },
       {
        value: 11750.5,
-       text: "$11501 - $12000"
+       text: "$11,501 - $12,000"
       },
       {
        value: 12250.5,
-       text: "$12001 - $12500"
+       text: "$12,001 - $12,500"
       },
       {
        value: 12750.5,
-       text: "$12501 - $13000"
+       text: "$12,501 - $13,000"
       },
       {
        value: 13250.5,
-       text: "$13001 - $13500"
+       text: "$13,001 - $13,500"
       },
       {
        value: 13750.5,
-       text: "$13501 - $14000"
+       text: "$13,501 - $14,000"
       },
       {
        value: 14250.5,
-       text: "$14001 - $14500"
+       text: "$14,001 - $14,500"
       },
       {
        value: 14750.5,
-       text: "$14501 - $15000"
+       text: "$14,501 - $15,000"
       },
       {
        value: 15250.5,
-       text: "$15001 - $15500"
+       text: "$15,001 - $15,500"
       },
       {
        value: 15750.5,
-       text: "$15501 - $16000"
+       text: "$15,501 - $16,000"
       },
       {
        value: 16250.5,
-       text: "$16001 - $16500"
+       text: "$16,001 - $16,500"
       },
       {
        value: 16750.5,
-       text: "$16501 - $17000"
+       text: "$16,501 - $17,000"
       },
       {
        value: 17250.5,
-       text: "$17001 - $17500"
+       text: "$17,001 - $17,500"
       },
       {
        value: 17750.5,
-       text: "$17501 - $18000"
+       text: "$17,501 - $18,000"
       },
       {
        value: 18250.5,
-       text: "$18001 - $18500"
+       text: "$18,001 - $18,500"
       },
       {
        value: 18750.5,
-       text: "$18501 - $19000"
+       text: "$18,501 - $19,000"
       },
       {
        value: 19250.5,
-       text: "$19001 - $19500"
+       text: "$19,001 - $19,500"
       },
       {
        value: 19750.5,
-       text: "$19501 - $20000"
+       text: "$19,501 - $20,000"
       }
      ]
+    },
+    {
+     type: "html",
+     name: "question1"
     }
    ]
   },
@@ -273,166 +302,168 @@
      name: "q_oop",
      title: "What were your out-of-pocket expenditures, for deductibles, copayments, and uncovered services? ",
      description: "Please think about primary care and specialist office visits, hospitalization / surgery, counseling / therapy, maternity / infertility treatments, chiropractor / acupuncture, and all prescription and over-the-counter medicines.",
+     isRequired: true,
+     requiredErrorText: "Please select a value.",
      choices: [
-      {
+            {
        value: 250,
        text: "$0 - $500"
       },
       {
        value: 750.5,
-       text: "$501 - $1000"
+       text: "$501 - $1,000"
       },
       {
        value: 1250.5,
-       text: "$1001 - $1500"
+       text: "$1,001 - $1,500"
       },
       {
        value: 1750.5,
-       text: "$1501 - $2000"
+       text: "$1,501 - $2,000"
       },
       {
        value: 2250.5,
-       text: "$2001 - $2500"
+       text: "$2,001 - $2,500"
       },
       {
        value: 2750.5,
-       text: "$2501 - $3000"
+       text: "$2,501 - $3,000"
       },
       {
        value: 3250.5,
-       text: "$3001 - $3500"
+       text: "$3,001 - $3,500"
       },
       {
        value: 3750.5,
-       text: "$3501 - $4000"
+       text: "$3,501 - $4,000"
       },
       {
        value: 4250.5,
-       text: "$4001 - $4500"
+       text: "$4,001 - $4,500"
       },
       {
        value: 4750.5,
-       text: "$4501 - $5000"
+       text: "$4,501 - $5,000"
       },
       {
        value: 5250.5,
-       text: "$5001 - $5500"
+       text: "$5,001 - $5,500"
       },
       {
        value: 5750.5,
-       text: "$5501 - $6000"
+       text: "$5,501 - $6,000"
       },
       {
        value: 6250.5,
-       text: "$6001 - $6500"
+       text: "$6,001 - $6,500"
       },
       {
        value: 6750.5,
-       text: "$6501 - $7000"
+       text: "$6,501 - $7,000"
       },
       {
        value: 7250.5,
-       text: "$7001 - $7500"
+       text: "$7,001 - $7,500"
       },
       {
        value: 7750.5,
-       text: "$7501 - $8000"
+       text: "$7,501 - $8,000"
       },
       {
        value: 8250.5,
-       text: "$8001 - $8500"
+       text: "$8,001 - $8,500"
       },
       {
        value: 8750.5,
-       text: "$8501 - $9000"
+       text: "$8,501 - $9,000"
       },
       {
        value: 9250.5,
-       text: "$9001 - $9500"
+       text: "$9,001 - $9,500"
       },
       {
        value: 9750.5,
-       text: "$9501 - $10000"
+       text: "$9,501 - $10,000"
       },
       {
        value: 10250.5,
-       text: "$10001 - $10500"
+       text: "$10,001 - $10,500"
       },
       {
        value: 10750.5,
-       text: "$10501 - $11000"
+       text: "$10,501 - $11,000"
       },
       {
        value: 11250.5,
-       text: "$11001 - $11500"
+       text: "$11,001 - $11,500"
       },
       {
        value: 11750.5,
-       text: "$11501 - $12000"
+       text: "$11,501 - $12,000"
       },
       {
        value: 12250.5,
-       text: "$12001 - $12500"
+       text: "$12,001 - $12,500"
       },
       {
        value: 12750.5,
-       text: "$12501 - $13000"
+       text: "$12,501 - $13,000"
       },
       {
        value: 13250.5,
-       text: "$13001 - $13500"
+       text: "$13,001 - $13,500"
       },
       {
        value: 13750.5,
-       text: "$13501 - $14000"
+       text: "$13,501 - $14,000"
       },
       {
        value: 14250.5,
-       text: "$14001 - $14500"
+       text: "$14,001 - $14,500"
       },
       {
        value: 14750.5,
-       text: "$14501 - $15000"
+       text: "$14,501 - $15,000"
       },
       {
        value: 15250.5,
-       text: "$15001 - $15500"
+       text: "$15,001 - $15,500"
       },
       {
        value: 15750.5,
-       text: "$15501 - $16000"
+       text: "$15,501 - $16,000"
       },
       {
        value: 16250.5,
-       text: "$16001 - $16500"
+       text: "$16,001 - $16,500"
       },
       {
        value: 16750.5,
-       text: "$16501 - $17000"
+       text: "$16,501 - $17,000"
       },
       {
        value: 17250.5,
-       text: "$17001 - $17500"
+       text: "$17,001 - $17,500"
       },
       {
        value: 17750.5,
-       text: "$17501 - $18000"
+       text: "$17,501 - $18,000"
       },
       {
        value: 18250.5,
-       text: "$18001 - $18500"
+       text: "$18,001 - $18,500"
       },
       {
        value: 18750.5,
-       text: "$18501 - $19000"
+       text: "$18,501 - $19,000"
       },
       {
        value: 19250.5,
-       text: "$19001 - $19500"
+       text: "$19,001 - $19,500"
       },
       {
        value: 19750.5,
-       text: "$19501 - $20000"
+       text: "$19,501 - $20,000"
       }
      ]
     }
@@ -442,11 +473,53 @@
    name: "act-hh",
    elements: [
     {
-     type: "text",
-     name: "q_num_hh_mem",
+     type: "dropdown",
+     name: "How many people are in your household?",
      title: "How many people are in your household?",
-     inputType: "number",
-     placeHolder: "1"
+     defaultValue: "1",
+     isRequired: true,
+     choices: [
+      {
+       value: "1",
+       text: "1"
+      },
+      {
+       value: "2",
+       text: "2"
+      },
+      {
+       value: "3",
+       text: "3"
+      },
+      {
+       value: "4",
+       text: "4"
+      },
+      {
+       value: "5",
+       text: "5"
+      },
+      {
+       value: "6",
+       text: "6"
+      },
+      {
+       value: "7",
+       text: "7"
+      },
+      {
+       value: "8",
+       text: "8"
+      },
+      {
+       value: "9",
+       text: "9"
+      },
+      {
+       value: "10",
+       text: "10+"
+      }
+     ]
     }
    ]
   },
@@ -457,6 +530,8 @@
      type: "dropdown",
      name: "q_income",
      title: "In order to estimate your costs under single payer, we need to know your approximate household income.",
+     isRequired: true,
+     requiredErrorText: "Please select a value.",
      choices: [
       {
        value: 25000,
@@ -580,8 +655,9 @@
   function inputFun(sessionID,bearerID,survey) {
       // update input values on session instance 
       var inputRequest = new XMLHttpRequest(); 
-      var inputURL = "https://graph.microsoft.com/v1.0/users/a01ab9eb-36de-4ebc-9889-3eb61d16d0e8/drives/b!8BpoJu__qEGSPkgzdPS-tpKUfASPeq9KuGIiQ7kUjgFvDlgFQHDHTYFuK27A0xlp/items/01X34IAM7MSEX2BK2PTJELELKUX4QPSWXA/workbook/worksheets('IO')/range(address='C3:C6')";
-      var data = '{"values": [['+survey.getValue('q_income')+'], ['+survey.getValue('q_num_hh_mem')+'], ['+survey.getValue('q_premiums')+'], ['+survey.getValue('q_oop')+']]}';
+      var inputURL = "https://graph.microsoft.com/v1.0/users/a01ab9eb-36de-4ebc-9889-3eb61d16d0e8/drives/b!8BpoJu__qEGSPkgzdPS-tpKUfASPeq9KuGIiQ7kUjgFvDlgFQHDHTYFuK27A0xlp/items/01X34IAM7MSEX2BK2PTJELELKUX4QPSWXA/workbook/worksheets('IO')/range(address='C3:C7')";
+      if (survey.getValue('q_bill'))
+      var data = '{"values": [['+survey.getValue('q_income')+'], ['+survey.getValue('q_num_hh_mem')+'], ['+survey.getValue('q_premiums')+'], ['+survey.getValue('q_oop')+'], [\''+survey.getValue('q_bill')+'\']]}';
       console.log(data);
       inputRequest.open('PATCH', inputURL, false);
       inputRequest.setRequestHeader('Authorization', 'Bearer '+bearerID);
