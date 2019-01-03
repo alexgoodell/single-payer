@@ -582,7 +582,7 @@ function bearerFun() {
     var params = 'client_id=a47c5bb1-d6c5-4b15-ad04-4965a6a52200&scope=https://graph.microsoft.com/.default&client_secret=Yid05ISF3R3vI1loFlLzTE6RLZTHUTT40cSpJcgLkso=&grant_type=client_credentials';
     bearerRequest.open('POST', tolkenUrl, true);
     bearerRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    bearerRequest.setRequestHeader('Access-Control-Allow_Origin', '*');
+    // bearerRequest.setRequestHeader('Access-Control-Allow_Origin', '*');
     var parsedResponse;
     bearerRequest.onreadystatechange = function(){
       if (bearerRequest.readyState == 4 && bearerRequest.status == 200) {
