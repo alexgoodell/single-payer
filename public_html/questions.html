@@ -656,7 +656,6 @@
       // update input values on session instance 
       var inputRequest = new XMLHttpRequest(); 
       var inputURL = "https://graph.microsoft.com/v1.0/users/a01ab9eb-36de-4ebc-9889-3eb61d16d0e8/drives/b!8BpoJu__qEGSPkgzdPS-tpKUfASPeq9KuGIiQ7kUjgFvDlgFQHDHTYFuK27A0xlp/items/01X34IAM7MSEX2BK2PTJELELKUX4QPSWXA/workbook/worksheets('IO')/range(address='C3:C7')";
-      if (survey.getValue('q_bill'))
       var data = '{"values": [['+survey.getValue('q_income')+'], ['+survey.getValue('q_num_hh_mem')+'], ['+survey.getValue('q_premiums')+'], ['+survey.getValue('q_oop')+'], [\''+survey.getValue('q_bill')+'\']]}';
       console.log(data);
       inputRequest.open('PATCH', inputURL, false);
