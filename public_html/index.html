@@ -11,64 +11,8 @@
     <!-- Google webfonts -->
     <link href="https://fonts.googleapis.com/css?family=Amiri|Trocchi" rel="stylesheet">
 
-    <style>
-
-
-    h1 { 
-      font-family: 'Trocchi', serif; 
-    }
-    body { 
-        font-family: 'Amiri', serif; 
-    }
-    .bg-people {
-      /*background: url("{{ url_for('static', filename = 'imgs/people.svg') }}") bottom center;*/
-      /*background-repeat: no-repeat;*/
-      /*background-size: 100%;*/
-      width: 100%;
-      /*height: 600px;*/
-
-    }
-    .bg-blue {
-      background: #C1D8EA;
-      height: 300px;
-    }
-    .bg-dark-blue {
-      background: #568FA2;
-      height: 400px;
-    }
-    .footer li {
-      background: none;
-      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-      color: white
-    }
-    #octocat_img {
-      max-width: 40px;
-    }
-
-    #octoholder {
-      text-align: right
-    }
-
-    #greetings {
-      margin: 0 auto;
-      max-width: 400px;
-      text-align: center;
-      padding: 50px 20px 0 20px;
-
-    }
-
-    #button {
-      background: none;
-      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-      color: white;
-      margin: 0 auto;
-      max-width: 400px;
-      text-align: center;
-      padding-top: 40px;
-      padding-bottom: 60px;
-    }
-
-    </style>
+     <!-- Custom CSS styles -->
+    <link href="static/styles/singlepayer.css" rel="stylesheet">
 
     <title>Single-payer costs</title>
   </head>
@@ -80,7 +24,7 @@
       In this website, we'll help you compare what you pay now for health care (premiums and other costs) to what you'd pay under single payer. It’s just a few questions ... let's get started.
     </div>
     <div id="button">
-      <a href="/questions.html">
+      <a href="questions.html">
         <input class="btn btn-primary" type="submit" value="Start calculating">
       </a>
     </div>
