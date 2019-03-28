@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Google webfonts -->
+    <link href="https://fonts.googleapis.com/css?family=Amiri|Trocchi" rel="stylesheet">
+
+    <!-- custom css -->
+    <link href="{{url_for('static', filename='styles/singlepayer.css')}}" rel="stylesheet">
+
+    <title>Single payer cost</title>
+
+  </head>
+  <body>
+    
+    <!-- where survey will be displayed -->
+    <div id="surveyElement"></div>
+
+    <!-- where results will be displayed -->
+    <div id="surveyResultHolder" class="sv_main">
+      <div id="surveyResult"></div> 
+    </div> 
+        
+
+    <!-- javascript that runs after  HTML -->
+
+    <!-- survey js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	  <script src="https://surveyjs.azureedge.net/1.0.61/survey.jquery.min.js"></script>
+
+    <!-- custom js -->
+    <link href="{{url_for('static', filename='styles/survey.css')}}" type="text/css" rel="stylesheet"/>
+
+  <script src="{{url_for('static', filename='scripts/singlepayer.js')}}"></script>
+
+
+
+  </body>
+
+</html>

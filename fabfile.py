@@ -22,3 +22,14 @@ def update():
 	print colored('............................. Done','green')
 
 
+
+## How to set up server
+# - install python 3.6
+# sudo add-apt-repository ppa:deadsnakes/ppa
+# sudo apt-get update
+# sudo apt-get install python3.6
+# mkdir ~/Downloads/
+# cd ~/Downloads && sudo python3.6 get-pip.py
+# sudo pip install Flask requests Flask-RESTful
+# cd ~/
+# git clone git@github.com:alexgoodell/single-payer.git
