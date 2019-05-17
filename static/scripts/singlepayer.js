@@ -579,12 +579,7 @@ function finishSurvey() {
   oop = survey.getValue('q_oop')
   bill = survey.getValue('q_bill')
 
-  var form = new FormData();
-  form.append("fam_size", num_hh_mem);
-  form.append("oop", oop);
-  form.append("premiums", premiums);
-  form.append("income", income);
-  form.append("bill", bill);
+  form = { fam_size: num_hh_mem, oop: oop, premiums: premiums, income: income, bill: bill };
   console.log(form)
 
   var settings = {
@@ -592,19 +587,12 @@ function finishSurvey() {
     "crossDomain": true,
     "url": "/api",
     "method": "POST",
-    "headers": {
-      "Content-Type": "application/x-www-form-urlencoded",
-      "cache-control": "no-cache",
-      "Postman-Token": "04196d55-3042-4123-baef-c6d19ca23b9c"
-    },
-    "processData": false,
-    "contentType": false,
-    "mimeType": "multipart/form-data",
+    "processData": true,
+    "contentType": "application/x-www-form-urlencoded",
     "data": form
   }
 
   $.ajax(settings).done(function (response) {
-    console.log(response);
     makeResults(response);
   });
 
@@ -612,8 +600,6 @@ function finishSurvey() {
 
 
 function makeResults(response) {
-
-  parsedResponse = JSON.parse(response); 
 
   // gather inputs
   income = survey.getValue('q_income')
@@ -624,10 +610,10 @@ function makeResults(response) {
 
   // gather results
 
-  currentSpend = parsedResponse["text"][0]
-  addedTaxes = parsedResponse["text"][1]
-  totalSinglePayerCost = parsedResponse["text"][2]
-  cost = parsedResponse["text"][3];
+  currentSpend = response["text"][0]
+  addedTaxes = response["text"][1]
+  totalSinglePayerCost = response["text"][2]
+  cost = response["text"][3];
 
   // determine wording for table
   saveOrSpendWording = ""

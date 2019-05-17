@@ -1,9 +1,7 @@
-import bibtexparser
 from fabric.api import run, sudo, local, settings
 from fabric.api import roles, execute
 import logging
 import sys
-import tabulate
 from prompter import prompt, yesno
 from termcolor import colored
 
@@ -23,13 +21,20 @@ def update():
 
 
 
-## How to set up server
+## How to install server prerequisites
 # - install python 3.6
 # sudo add-apt-repository ppa:deadsnakes/ppa
 # sudo apt-get update
 # sudo apt-get install python3.6
 # mkdir ~/Downloads/
-# cd ~/Downloads && sudo python3.6 get-pip.py
+# cd ~/Downloads
+# curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+# sudo python3.6 get-pip.py
 # sudo pip install Flask requests Flask-RESTful
-# cd ~/
-# git clone git@github.com:alexgoodell/single-payer.git
+# cd /home
+# sudo git clone https://github.com/alexgoodell/single-payer.git
+
+## booting up server
+
+# cd /home/single-payer
+# sudo python3.6 index.py
