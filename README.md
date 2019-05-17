@@ -24,10 +24,10 @@ The excel-based model uses a series of lookup tables to estimate changes in tax 
 Contributers (alphabetical)
 ------
 
-- Dr. Hank Abrons, MD, past president, California Chapter, Physicians for a National Health Plan
-- Dr. Alex Goodell, Resident Physician, Stanford University
+- Hank Abrons, MD, past president, California Chapter, Physicians for a National Health Plan
+- Alex Goodell, Resident Physician, Stanford University
 - Benjamin Herzel, Medical Student, Loma Linda University Physicians for a National Health Plan
-- Dr. James G Kahn, Professor at University of San Francisco California and past president, California Chapter, Physicians for a National Health Plan 
+- James G Kahn, Professor at University of San Francisco California and past president, California Chapter, Physicians for a National Health Plan 
 - Andrew McGuire, Executive Director, California OneCare
 - Todd Lash, Managing Director, Tenaya Partners
 
