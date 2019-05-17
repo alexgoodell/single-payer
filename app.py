@@ -59,10 +59,10 @@ def subData(bearerTolken, sessionID):
 	subReq = requests.patch(subURL, headers=headers, data=body)
 
 	if subReq.status_code == 200:
-		print colored("Success", "green")
+		print(colored("Success", "green"))
 	else:
 		error_message = "Error, code" + str(subReq.status_code)
-		print colored(error_message, "red")
+		print(colored(error_message, "red"))
 
 
 	return subReq.content, 200
@@ -79,10 +79,10 @@ def retCalcs(bearerTolken, sessionID):
 	r = requests.get(retURL, headers=headers)
 
 	if r.status_code == 200:
-		print colored("Success", "green")
+		print(colored("Success", "green"))
 	else:
 		error_message = "Error, code" + str(r.status_code)
-		print colored(error_message, "red")
+		print(colored(error_message, "red"))
 
 	return r.json()
 
@@ -121,9 +121,9 @@ if __name__ == '__main__':
 
 def message_terminal(m, m2 = "", m3 = "", m4 = ""):
 	message2 = str(m2) + str(m3) + str(m4)
-	print colored('-' * 20, 'yellow')
-	print colored(m, 'blue')
-	print colored(message2, 'white')
+	print(colored('-' * 20, 'yellow'))
+	print(colored(m, 'blue'))
+	print(colored(message2, 'white'))
 
 
 
