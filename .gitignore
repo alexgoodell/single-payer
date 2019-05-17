@@ -1,7 +1,7 @@
 .DS_STORE
 
 # Compiled python
-.pyc
+*.pyc
 
 # Temp files
 *.tmp

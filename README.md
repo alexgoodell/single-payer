@@ -25,8 +25,8 @@ Contributers (alphabetical)
 ------
 
 - Hank Abrons, MD, past president, California Chapter, Physicians for a National Health Plan
-- Alex Goodell, Resident Physician, Stanford University
-- Benjamin Herzel, Medical Student, Loma Linda University Physicians for a National Health Plan
+- Alex Goodell, PGY-1, Stanford Health Care
+- Benjamin Herzel, Medical Student, Loma Linda University, Physicians for a National Health Plan
 - James G Kahn, Professor at University of San Francisco California and past president, California Chapter, Physicians for a National Health Plan 
 - Andrew McGuire, Executive Director, California OneCare
 - Todd Lash, Managing Director, Tenaya Partners

@@ -116,7 +116,7 @@ api.add_resource(HelloWorld, '/api')
 
 if __name__ == '__main__':
 	app.run(host="0.0.0.0", port=80)
-#inputRequest
+
 
 
 def message_terminal(m, m2 = "", m3 = "", m4 = ""):
