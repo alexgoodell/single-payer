@@ -110,20 +110,17 @@ def home():
 def questions():
 	return render_template('questions.html')
 
-api.add_resource(HelloWorld, '/api')
-
-
-
-if __name__ == '__main__':
-	app.run(host="0.0.0.0", port=80)
-
-
-
 def message_terminal(m, m2 = "", m3 = "", m4 = ""):
 	message2 = str(m2) + str(m3) + str(m4)
 	print(colored('-' * 20, 'yellow'))
 	print(colored(m, 'blue'))
 	print(colored(message2, 'white'))
+
+api.add_resource(HelloWorld, '/api')
+
+if __name__ == '__main__':
+	app.run(host="0.0.0.0", port=80)
+
 
 
 

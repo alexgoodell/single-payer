@@ -610,16 +610,33 @@ function makeResults(response) {
 
   // gather results
 
-  currentSpend = response["text"][0]
-  addedTaxes = response["text"][1]
-  totalSinglePayerCost = response["text"][2]
-  cost = response["text"][3];
+
+  currentSpend = response["text"][0][0].replace("$","").replace(",","")
+  addedTaxes = response["text"][1][0].replace("$","").replace(",","")
+  totalSinglePayerCost = response["text"][2][0].replace("$","").replace(",","")
+  cost = response["text"][3][0].replace("$","").replace(",","")
+
+  // console.log(currentSpend)
+  // console.log(addedTaxes)
+  // console.log(totalSinglePayerCost)
+  // console.log(cost)
+
+  currentSpend = parseInt(currentSpend,10)
+  addedTaxes = parseInt(addedTaxes,10)
+  totalSinglePayerCost = parseInt(totalSinglePayerCost,10)
+  cost = parseInt(cost,10)
+
+  // console.log(currentSpend)
+  // console.log(addedTaxes)
+  // console.log(totalSinglePayerCost)
+  // console.log(cost)
+
 
   // determine wording for table
   saveOrSpendWording = ""
-  if (cost[0][0] == "-") {
+  if (cost < 0) {
     saveOrSpendWording = "Annual additional cost to you"
-    costToUser = cost[0].slice(1)
+    costToUser = cost * -1.0
   }
   else {
     saveOrSpendWording = "Annual savings to you"
@@ -635,7 +652,7 @@ function makeResults(response) {
         <td>
           <tr>
             <td> Income </td>
-            <td> {0} </td>
+            <td> $ {0} </td>
           </tr>
           <tr>
             <td> Househould number </td>
@@ -643,11 +660,11 @@ function makeResults(response) {
           </tr>
           <tr>
             <td> Current premiums </td>
-            <td> {2} </td>
+            <td> $ {2} </td>
           </tr>
           <tr>
             <td> Current Out-of-pocket expenses </td>
-            <td> {3} </td>
+            <td> $ {3} </td>
           </tr>
           <tr>
             <td> Selected single-payer bill</td>
@@ -660,26 +677,36 @@ function makeResults(response) {
         <td>
           <tr>
             <td> You currently spend </td>
-            <td> {5} </td>
+            <td> $ {5} </td>
           </tr>
           <tr>
             <td> Added taxes under single payer </td>
-            <td> {6} </td>
+            <td> $ {6} </td>
           </tr>
           <tr>
             <td> Total single payer cost </td>
-            <td> {7} </td>
+            <td> $ {7} </td>
           </tr>
           <tr>
             <td> {8} </td>
-            <td> {9} </td>
+            <td> $ {9} </td>
           </tr>
         </td>
       </table>
     </div> <!-- survey result end -->
-    <a href="questions.html"><input type="button" id="restart_button" value="Restart calculator"></a>
+    <a href="questions"><input type="button" id="restart_button" value="Restart calculator"></a>
     <input type="button" id="print_button" value="Print your results" onClick="printDiv('surveyResult')">`
 
+  income = numberWithCommas(income)
+  num_hh_mem = numberWithCommas(num_hh_mem)
+  premiums = numberWithCommas(premiums)
+  oop = numberWithCommas(oop)
+  bill = numberWithCommas(bill)
+  currentSpend = numberWithCommas(currentSpend)
+  addedTaxes = numberWithCommas(addedTaxes)
+  totalSinglePayerCost = numberWithCommas(totalSinglePayerCost)
+  saveOrSpendWording = saveOrSpendWording
+  costToUser = numberWithCommas(costToUser)
 
   resultsText = resultsText.format(income, num_hh_mem,
     premiums, oop, bill, currentSpend, addedTaxes,
@@ -691,6 +718,10 @@ function makeResults(response) {
 
 // ----------------- misc functions --------------------
 
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 // for easier formatting of results
 String.prototype.format = function() {
