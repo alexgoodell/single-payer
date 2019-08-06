@@ -106,7 +106,7 @@ class HelloWorld(Resource):
 def home():
 	return render_template('index.html')
 
-@app.route('/questions')
+@app.route('/questions3456')
 def questions():
 	return render_template('questions.html')
 
