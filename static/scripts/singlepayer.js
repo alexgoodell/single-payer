@@ -694,7 +694,7 @@ function makeResults(response) {
         </td>
       </table>
     </div> <!-- survey result end -->
-    <a href="questions"><input type="button" id="restart_button" value="Restart calculator"></a>
+    <a href="questions3456"><input type="button" id="restart_button" value="Restart calculator"></a>
     <input type="button" id="print_button" value="Print your results" onClick="printDiv('surveyResult')">`
 
   income = numberWithCommas(income)

@@ -88,6 +88,50 @@ def set_up_server():
 	print(colored('\n ----> !! Warning !! Currently using DEVELOPMENT version of flask server','yellow'))
 
 
+def refresh_server():
+
+	print(colored('\n ======= Change permissions prior to pull =======','yellow'))
+
+	run('sudo chmod -R 777 /home/single-payer')
+
+	print(colored('\n ======= Cloning repo =======','yellow'))
+
+	with cd("/home"):
+		with warn_only():
+			run('rm -rf single-payer')
+		run('sudo git clone https://github.com/alexgoodell/single-payer.git')
+
+	print(colored('\n ======= Change permissions after pull =======','yellow'))
+
+	run('sudo chmod -R 777 /home/single-payer')
+
+	print(colored('\n ======= Configure supervisord =======','yellow'))
+
+	with warn_only():
+		run("sudo service supervisor stop")
+		run('sudo rm -rf /etc/supervisor/conf.d/*.conf')
+		run('sudo rm -rf /var/log/sp.err.log')
+		run('sudo rm -rf /var/log/sp.out.log')
+		run('sudo touch /var/log/sp.err.log')
+		run('sudo touch /var/log/sp.out.log')
+	put('supervisor/single-payer.conf', '/etc/supervisor/conf.d', use_sudo=True)
+
+	print(colored('\n ======= Start test server / supervisord =======','yellow'))
+
+	with warn_only():
+		run("sudo service supervisor start")
+		run('sudo supervisorctl reread')
+		run('sudo supervisorctl update')
+		status = run('sudo supervisorctl status')
+
+	if "RUNNING" in status:
+		print(colored('\n ----> Server launched at IP {}'.format(env.host),'green'))
+	else:
+		print(colored('\n ----> !! Error !! Server failed to launch','red'))
+
+	print(colored('\n ----> !! Warning !! Currently using DEVELOPMENT version of flask server','yellow'))
+
+
 # ------------------------------ Local dependencies mangement -------------------------------
 
 
