@@ -110,6 +110,10 @@ def home():
 def questions():
 	return render_template('questions.html')
 
+@app.route('/questions')
+def questions():
+	return render_template('questions.html')
+
 def message_terminal(m, m2 = "", m3 = "", m4 = ""):
 	message2 = str(m2) + str(m3) + str(m4)
 	print(colored('-' * 20, 'yellow'))

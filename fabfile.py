@@ -91,6 +91,27 @@ def set_up_server():
 # ------------------------------ Local dependencies mangement -------------------------------
 
 
+def update():
+	# util.header('Archiving citations')
+	# execute(archive_all_citations)
+
+	# util.header('Updating requirements file')
+	# local('pip freeze -r ' + config.root_path + '/devel-req.txt > ' + config.root_path + '/requirements.txt')
+
+	# util.header('Updating citations md files')
+	# execute(generate_cite_md)
+
+	print colored('adding to git','green')
+	local('git add .')
+	local('git status')
+	m = prompt("Commit message:", default='Autoupdate')
+	# if not yesno('Continue?'):
+		# return
+	local('git commit -m \'' + m + "\'")
+	local('git push origin master')
+	print colored('............................. Done','green')
+    # local("pipreqs --force $PWD")
+
 def update_requirements_file():
     ''' Builds requirements file using pipreq package '''
     local("pipreqs --print $PWD")
