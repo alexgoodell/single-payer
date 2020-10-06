@@ -2,6 +2,8 @@ from flask import Flask, render_template
 from flask_restful import Resource, Api, reqparse
 import requests
 from termcolor import colored
+import sys
+
 
 def getTolken():
 	message_terminal("attempting to obtain token from MS servers")

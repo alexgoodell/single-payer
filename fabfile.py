@@ -10,13 +10,18 @@ from fabric.api import *
 from termcolor import colored
 from fabric.operations import local as lrun, run
 
-env.user = 'ubuntu'
-env.key_filename = '~/.ssh/Alex.pem'
-env.use_ssh_config = True
-env.hosts = 'single-payer-server'
+# ---------------------------------- Server Info -----------------------------------
+
+env.user = ''      # eg, tom
+env.password = ''  # eg, "bestpassw0rd"
+env.hosts = ''     # eg, 100.12.12.100
+
+# For previous AWS set-up:
+# env.key_filename = '~/.ssh/Alex.pem'
+# env.use_ssh_config = True
 
 
-# ------------------------------- Set up server -------------------------------
+# ------------------------------- Remote server -------------------------------
 
 def set_up_server():
 
@@ -48,7 +53,8 @@ def set_up_server():
 	
 	print(colored('\n ======= Change permissions prior to pull =======','yellow'))
 
-	run('sudo chmod -R 777 /home/single-payer')
+	with warn_only():
+		run('sudo chmod -R 777 /home/single-payer')
 
 	print(colored('\n ======= Cloning repo =======','yellow'))
 
@@ -132,20 +138,16 @@ def refresh_server():
 	print(colored('\n ----> !! Warning !! Currently using DEVELOPMENT version of flask server','yellow'))
 
 
+# ---------------------------------- Local server -----------------------------------
+
+def start_local_server():
+	local('sudo python3.6 app.py')
+
 # ------------------------------ Local dependencies mangement -------------------------------
 
-
 def update():
-	# util.header('Archiving citations')
-	# execute(archive_all_citations)
-
-	# util.header('Updating requirements file')
-	# local('pip freeze -r ' + config.root_path + '/devel-req.txt > ' + config.root_path + '/requirements.txt')
-
-	# util.header('Updating citations md files')
-	# execute(generate_cite_md)
-
-	print colored('adding to git','green')
+	''' Autosaves to github '''
+	print(colored('adding to git','green'))
 	local('git add .')
 	local('git status')
 	m = prompt("Commit message:", default='Autoupdate')
@@ -153,22 +155,34 @@ def update():
 		# return
 	local('git commit -m \'' + m + "\'")
 	local('git push origin master')
-	print colored('............................. Done','green')
+	print(colored('............................. Done','green'))
     # local("pipreqs --force $PWD")
 
 def update_requirements_file():
-    ''' Builds requirements file using pipreq package '''
-    local("pipreqs --print $PWD")
-    local("pipreqs --force $PWD")
+	''' Builds requirements file using pip freeze  '''
+	print(colored('\n ======= Updating requirements file =======','yellow'))
+	local("pip list")
+	local("pip freeze > requirements.txt")
+	# alternative version (captures only what is used, may leave out fabric, CLI tools, etc)
+		# local("pipreqs --print $PWD")
+		# local("pipreqs --force $PWD")
 
 def install_requirements():
     ''' Installs requirements with pip. Note, this function probably won't be used through 
     fabric, as it won't run without required dependencies installed'''
     locat("pip install -r requirements.txt")
 
+# ---------------------------------- Testing -----------------------------------
 
 
+def test_fabric():
+	print(colored('\n\n-----> FABRIC IS RUNNING -----\n\n','green'))
 
+def test_connection():
+	print(colored('\n\n----- LOCAL -----\n\n','yellow'))
+	local('uname -a')
+	print(colored('\n\n----- REMOTE -----\n\n','yellow'))
+	run('uname -a')
 
 
 
