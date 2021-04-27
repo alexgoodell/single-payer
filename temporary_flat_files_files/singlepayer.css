@@ -1,0 +1,71 @@
+
+    h1 { 
+      font-family: 'Trocchi', serif; 
+    }
+    body { 
+        font-family: 'Amiri', serif; 
+    }
+    .bg-people {
+      /*background: url("{{ url_for('static', filename = 'imgs/people.svg') }}") bottom center;*/
+      /*background-repeat: no-repeat;*/
+      /*background-size: 100%;*/
+      width: 100%;
+      /*height: 600px;*/
+
+    }
+    .bg-blue {
+      background: #C1D8EA;
+      height: 300px;
+    }
+    .bg-dark-blue {
+      background: #568FA2;
+      height: 400px;
+    }
+    .footer li {
+      background: none;
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+      color: white
+    }
+    #octocat_img {
+      max-width: 40px;
+    }
+
+    #octoholder {
+      text-align: right
+    }
+
+    #maincol {
+      text-align: center;
+      padding-top: 50px;
+
+    }
+
+    #surveyResultHolder {
+      padding: 0.5em 1em 1.5em;
+    }
+
+    #greetings {
+      margin: 0 auto;
+      max-width: 400px;
+      text-align: center;
+      padding: 50px 20px 0 20px;
+
+    }
+
+    #button {
+      background: none;
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+      color: white;
+      margin: 0 auto;
+      max-width: 400px;
+      text-align: center;
+      padding-top: 40px;
+      padding-bottom: 60px;
+    }
+
+    #print_button {
+      margin-top: 10px;
+    }
+
+
+
